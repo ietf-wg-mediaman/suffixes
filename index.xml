@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rfc PUBLIC "-//IETF//DTD RFC 2629//EN" "http://xml.resource.org/authoring/rfc2629.dtd" [
+  <!ENTITY rfc2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
+]>
+<?xml-stylesheet type="text/xsl" href="rfc2629.xsl" ?>
+<?rfc compact="yes" ?>
+<?rfc subcompact="no" ?>
+<?rfc toc="yes" ?>
+<?rfc sortrefs="yes" ?>
+<?rfc symrefs="yes" ?>
+<rfc category="std" ipr="trust200902" submissionType="independent"
+  docName="draft-rfc6838-media-type-update">
+<front>
+
+  <title></title>
+
+  <author initials="M.S." surname="Sporny" fullname="Manu Sporny">
+    <organization>Digital Bazaar</organization>
+    <address>
+      <postal>
+        <street>203 Roanoke Street W.</street>
+        <city>Blacksburg</city>
+        <region>VA</region>
+        <code>24060</code>
+        <country>US</country>
+      </postal>
+      <phone>+1 540 961 4469</phone>
+      <email>msporny@digitalbazaar.com</email>
+      <uri>http://manu.sporny.org/</uri>
+    </address>
+  </author>
+
+  <author initials="A.G." surname="Guy" fullname="Amy Guy">
+    <organization>Digital Bazaar</organization>
+    <address>
+      <postal>
+        <street>203 Roanoke Street W.</street>
+        <city>Blacksburg</city>
+        <region>VA</region>
+        <code>24060</code>
+        <country>US</country>
+      </postal>
+      <email>rhiaro@digitalbazaar.com</email>
+      <uri>https://rhiaro.co.uk/</uri>
+    </address>
+  </author>
+
+  <date month="October" year="2020" />
+  <area></area>
+  <workgroup />
+
+  <abstract>
+    <t>
+This document updates RFC 6838 "Media Type Specifications and Registration
+Procedures" to describe how to interpret nested media type suffixes.
+    </t>
+  </abstract>
+
+</front>
+<middle>
+  <section anchor="intro" title="Introduction">
+    <t>
+
+    </t>
+  </section>
+
+</middle>
+
+<back>
+  <references title="Normative References">
+&rfc2119;
+  </references>
+
+  <section anchor="acknowledgements" title="Acknowledgements">
+    <t>
+The editors would like to thank the following individuals for feedback on and
+implementations of the specification (in alphabetical order):
+    </t>
+  </section>
+
+</back>
+</rfc>

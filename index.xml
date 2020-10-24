@@ -10,7 +10,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc symrefs="yes" ?>
 <rfc category="std" ipr="trust200902" submissionType="independent"
-  docName="draft-guy-rfc6838-multiple-suffixes-update">
+  docName="draft-w3cdidwg-media-types-with-multiple-suffixes-00">
 <front>
 
   <title>Media Types with Multiple Suffixes</title>
@@ -62,7 +62,7 @@ already registered and well-defined media types which themselves use a
 structured suffix.
     </t>
 
-    <section anchor="updates" title="Updates to RFC 6838">
+    <section anchor="media-types-with-multiple-suffixes" title="Media Types with Multiple Suffixes">
       <t>
 The following paragraphs are additions to RFC 6838.
       </t>

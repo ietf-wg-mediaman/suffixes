@@ -5,4 +5,4 @@ Procedures" to describe how to interpret multiple media type suffixes.
 
 You can view an HTML version of the specification here:
 
-[https://rhiaro.github.io/draft-guy-rfc6838-multiple-suffixes-update/](https://rhiaro.github.io/draft-guy-rfc6838-multiple-suffixes-update/)
+[https://rhiaro.github.io/draft-w3cdidwg-media-types-with-multiple-suffixes/](https://rhiaro.github.io/draft-w3cdidwg-media-types-with-multiple-suffixes/)

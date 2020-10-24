@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rfc PUBLIC "-//IETF//DTD RFC 2629//EN" "http://xml.resource.org/authoring/rfc2629.dtd" [
   <!ENTITY rfc2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
+  <!ENTITY rfc6838 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6838.xml">
 ]>
 <?xml-stylesheet type="text/xsl" href="rfc2629.xsl" ?>
 <?rfc compact="yes" ?>
@@ -9,26 +10,10 @@
 <?rfc sortrefs="yes" ?>
 <?rfc symrefs="yes" ?>
 <rfc category="std" ipr="trust200902" submissionType="independent"
-  docName="draft-rfc6838-media-type-update">
+  docName="draft-guy-rfc6838-multiple-suffixes-update">
 <front>
 
-  <title></title>
-
-  <author initials="M.S." surname="Sporny" fullname="Manu Sporny">
-    <organization>Digital Bazaar</organization>
-    <address>
-      <postal>
-        <street>203 Roanoke Street W.</street>
-        <city>Blacksburg</city>
-        <region>VA</region>
-        <code>24060</code>
-        <country>US</country>
-      </postal>
-      <phone>+1 540 961 4469</phone>
-      <email>msporny@digitalbazaar.com</email>
-      <uri>http://manu.sporny.org/</uri>
-    </address>
-  </author>
+  <title>Media Types with Multiple Suffixes</title>
 
   <author initials="A.G." surname="Guy" fullname="Amy Guy">
     <organization>Digital Bazaar</organization>
@@ -52,7 +37,7 @@
   <abstract>
     <t>
 This document updates RFC 6838 "Media Type Specifications and Registration
-Procedures" to describe how to interpret nested media type suffixes.
+Procedures" to describe how to interpret subtypes with multiple suffixes.
     </t>
   </abstract>
 
@@ -60,8 +45,52 @@ Procedures" to describe how to interpret nested media type suffixes.
 <middle>
   <section anchor="intro" title="Introduction">
     <t>
-
+As written, RFC 6838 [RFC6838] permits the registration of media type subtype
+names which contain any number of occurrences of the "+" character. RFC 6838
+defines the characters following the final "+" to be a structured syntax
+suffix, but does not define anything further about how to interpret subtype
+names containing more than one "+" character.
     </t>
+    <t>
+This document updates RFC 6838 to clarify how to interpret subtype names
+containing more than one "+" character as subtypes with multiple suffixes.
+    </t>
+    <t>
+As registration of media types which use a structured suffix has become widely
+supported, this enables further specialization of media types that build on
+already registered and well-defined media types which themselves use a
+structured suffix.
+    </t>
+
+    <section anchor="updates" title="Updates to RFC 6838">
+      <t>
+The following paragraphs are additions to RFC 6838.
+      </t>
+      <t>
+Media types MAY be registered with more than one suffix appended to the base
+subtype name. The suffixes MUST be interpreted as ordered, starting with the
+most specific (the base subtype name) on the left, to the most generic on the
+right. Characters before the first "+" in a subtype name specify the base
+subtype name. Characters following each subsequent "+" in a subtype name
+denote additional syntax specifier suffixes.
+      </t>
+      <t>
+This means that receivers of the media type can do generic processing on the
+underlying representation according to their ability to process any subset of
+the right-most suffix(es) in cases where specific handling of the exact media
+type is not required.
+      </t>
+      <t>
+Media types with more than one suffix MUST be registered according to the
+procedure defined in [RFC6838] with the additional requirement that each
+subset of suffixes, starting from the right-most suffix, MUST be individually
+registered as a subtype in its own right.
+      </t>
+      <t>
+For example, a media type that uses the two suffixes "+svg+xml" is only
+permitted insofar as "svg+xml" is already registered.
+      </t>
+    </section>
   </section>
 
 </middle>
@@ -69,6 +98,7 @@ Procedures" to describe how to interpret nested media type suffixes.
 <back>
   <references title="Normative References">
 &rfc2119;
+&rfc6838;
   </references>
 
   <section anchor="acknowledgements" title="Acknowledgements">

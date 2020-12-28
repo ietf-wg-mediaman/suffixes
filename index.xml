@@ -145,8 +145,9 @@ application/did+ld+json
 
   <section anchor="acknowledgements" title="Acknowledgements">
     <t>
-The editors would like to thank the following individuals for feedback on and
-implementations of the specification (in alphabetical order):
+The editors would like to thank the following individuals for feedback on the
+specification (in alphabetical order): Martin J. Dürst, Ivan Herman, Graham
+Klyne, Murray S. Kucherawy, Manu Sporny.
     </t>
   </section>
 

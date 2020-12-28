@@ -62,35 +62,45 @@ already registered and well-defined media types which themselves use a
 structured suffix.
     </t>
 
-    <section anchor="media-types-with-multiple-suffixes" title="Media Types with Multiple Suffixes">
+    <section anchor="conventions" title="Conventions Used in This Document">
       <t>
-The following paragraphs are additions to RFC 6838.
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+"SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+document are to be interpreted as described in [RFC2119] when they
+appear in ALL CAPS.  They may also appear in lower or mixed case as
+plain English words, without any normative meaning.
       </t>
-      <t>
+    </section>
+  </section>
+
+  <section anchor="media-types-with-multiple-suffixes" title="Media Types with Multiple Suffixes">
+    <t>
+The following paragraphs are additions to RFC 6838.
+    </t>
+    <t>
 Media types MAY be registered with more than one suffix appended to the base
 subtype name. The suffixes MUST be interpreted as ordered, starting with the
 most specific (the base subtype name) on the left, to the most generic on the
 right. Characters before the first "+" in a subtype name specify the base
 subtype name. Characters following each subsequent "+" in a subtype name
 denote additional syntax specifier suffixes.
-      </t>
-      <t>
+    </t>
+    <t>
 This means that receivers of the media type can do generic processing on the
 underlying representation according to their ability to process any subset of
 the right-most suffix(es) in cases where specific handling of the exact media
 type is not required.
-      </t>
-      <t>
+    </t>
+    <t>
 Media types with more than one suffix MUST be registered according to the
 procedure defined in [RFC6838] with the additional requirement that each
 subset of suffixes, starting from the right-most suffix, MUST be individually
 registered as a subtype in its own right.
-      </t>
-      <t>
+    </t>
+    <t>
 For example, a media type that uses the two suffixes "+svg+xml" is only
 permitted insofar as "svg+xml" is already registered.
-      </t>
-    </section>
+    </t>
   </section>
 
 </middle>

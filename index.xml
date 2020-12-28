@@ -10,7 +10,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc symrefs="yes" ?>
 <rfc category="std" ipr="trust200902" submissionType="independent"
-  docName="draft-w3cdidwg-media-types-with-multiple-suffixes-00">
+  docName="draft-w3cdidwg-media-types-with-multiple-suffixes-01">
 <front>
 
   <title>Media Types with Multiple Suffixes</title>
@@ -30,7 +30,7 @@
     </address>
   </author>
 
-  <date month="October" year="2020" />
+  <date month="December" year="2020" />
   <area></area>
   <workgroup />
 
@@ -114,24 +114,24 @@ type that can be processed.
 For example, for the media type "application/did+ld+json", the following are
 all valid subtypes with their own individually specified processing rules:
       </t>
-      <t>
+      <figure>
         <artwork>
 json
 ld+json
 did+ld+json
         </artwork>
-      </t>
+      </figure>
       <t>
 Thus applications can choose to process the underlying representation
 according any of the following valid media types:
       </t>
-      <t>
+      <figure>
         <artwork>
 application/json
 application/ld+json
 application/did+ld+json
         </artwork>
-      </t>
+      </figure>
     </section>
   </section>
 

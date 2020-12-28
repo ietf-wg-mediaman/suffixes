@@ -97,17 +97,42 @@ permitted insofar as "svg+xml" is already registered. In this case, the suffix
 "+svg" does not need to be registered individually, but "+xml" and "svg+xml"
 MUST be registered.
     </t>
-    <t>
-Registered subtypes have clear processing rules, so this means that receivers
-of the media type can do generic processing on the underlying representation
-according to their ability to process any subset of the right-most suffix(es)
-in cases where specific handling of the exact media type is not required.
-In other words, an application can choose to ignore the base subtype name and
-left-most "+" from a media type with multiple suffixes, and process
-according to the remaining media type suffix(es). An application can ignore
-as many of the left-most suffixes as necessary to achieve a media type that
-can be processed.
-    </t>
+
+    <section anchor="processing" title="Processing Multiple Suffixes">
+      <t>
+Registered subtypes have clear processing rules. In cases where specific
+handling of the exact media type is not required, receivers of the media type
+MAY do generic processing on the underlying representation
+according to their ability to process any subset of the suffix(es) from right
+to left inclusive. In other words, an application can choose to ignore the
+base subtype name and left-most "+" from a media type with multiple suffixes,
+and process according to the remaining media type suffix(es). An application
+can ignore as many of the left-most suffixes as necessary to achieve a media
+type that can be processed.
+      </t>
+      <t>
+For example, for the media type "application/did+ld+json", the following are
+all valid subtypes with their own individually specified processing rules:
+      </t>
+      <t>
+        <artwork>
+json
+ld+json
+did+ld+json
+        </artwork>
+      </t>
+      <t>
+Thus applications can choose to process the underlying representation
+according any of the following valid media types:
+      </t>
+      <t>
+        <artwork>
+application/json
+application/ld+json
+application/did+ld+json
+        </artwork>
+      </t>
+    </section>
   </section>
 
 </middle>

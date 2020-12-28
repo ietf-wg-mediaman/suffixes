@@ -79,27 +79,34 @@ The following paragraphs are additions to RFC 6838.
     </t>
     <t>
 Media types MAY be registered with more than one suffix appended to the base
-subtype name. The suffixes MUST be interpreted as ordered, starting with the
-most specific (the base subtype name) on the left, to the most generic on the
-right. Characters before the first "+" in a subtype name specify the base
-subtype name. Characters following each subsequent "+" in a subtype name
-denote additional syntax specifier suffixes.
-    </t>
-    <t>
-This means that receivers of the media type can do generic processing on the
-underlying representation according to their ability to process any subset of
-the right-most suffix(es) in cases where specific handling of the exact media
-type is not required.
+subtype name. The suffixes MUST be interpreted as ordered. Valid media type
+names containing a structured suffix are built from right to left (not left
+to right). Characters on the left-most side of the left-most "+" in a subtype
+name specify the base subtype name. Characters to the right of each "+" in
+a subtype name denote additional structured syntax specifier suffixes.
     </t>
     <t>
 Media types with more than one suffix MUST be registered according to the
-procedure defined in [RFC6838] with the additional requirement that each
-subset of suffixes, starting from the right-most suffix, MUST be individually
-registered as a subtype in its own right.
+procedure defined in [RFC6838]. A new base subtype name MUST only be
+registered with suffix combinations that are already registered in their own
+right.
     </t>
     <t>
 For example, a media type that uses the two suffixes "+svg+xml" is only
-permitted insofar as "svg+xml" is already registered.
+permitted insofar as "svg+xml" is already registered. In this case, the suffix
+"+svg" does not need to be registered individually, but "+xml" and "svg+xml"
+MUST be registered.
+    </t>
+    <t>
+Registered subtypes have clear processing rules, so this means that receivers
+of the media type can do generic processing on the underlying representation
+according to their ability to process any subset of the right-most suffix(es)
+in cases where specific handling of the exact media type is not required.
+In other words, an application can choose to ignore the base subtype name and
+left-most "+" from a media type with multiple suffixes, and process
+according to the remaining media type suffix(es). An application can ignore
+as many of the left-most suffixes as necessary to achieve a media type that
+can be processed.
     </t>
   </section>
 

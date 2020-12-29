@@ -116,9 +116,9 @@ all valid subtypes with their own individually specified processing rules:
       </t>
       <figure>
         <artwork>
-json
-ld+json
 did+ld+json
+ld+json
+json
         </artwork>
       </figure>
       <t>
@@ -127,9 +127,9 @@ according any of the following valid media types:
       </t>
       <figure>
         <artwork>
-application/json
-application/ld+json
 application/did+ld+json
+application/ld+json
+application/json
         </artwork>
       </figure>
     </section>
@@ -147,7 +147,7 @@ application/did+ld+json
     <t>
 The editors would like to thank the following individuals for feedback on the
 specification (in alphabetical order): Martin J. Dürst, Ivan Herman, Graham
-Klyne, Murray S. Kucherawy, Manu Sporny.
+Klyne, Murray S. Kucherawy, Manu Sporny, Ted Thibodeau Jr.
     </t>
   </section>
 

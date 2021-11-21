@@ -9,11 +9,26 @@
 <?rfc toc="yes" ?>
 <?rfc sortrefs="yes" ?>
 <?rfc symrefs="yes" ?>
-<rfc category="std" ipr="trust200902" submissionType="independent"
-  docName="draft-w3cdidwg-media-types-with-multiple-suffixes-01">
+<rfc category="std" ipr="trust200902" submissionType="IETF"
+  docName="draft-ietf-mediaman-suffixes-00">
 <front>
 
   <title>Media Types with Multiple Suffixes</title>
+
+  <author initials="M.S." surname="Sporny" fullname="Manu Sporny">
+    <organization>Digital Bazaar</organization>
+    <address>
+      <postal>
+        <street>203 Roanoke Street W.</street>
+        <city>Blacksburg</city>
+        <region>VA</region>
+        <code>24060</code>
+        <country>US</country>
+      </postal>
+      <email>msporny@digitalbazaar.com</email>
+      <uri>http://manu.sporny.org/</uri>
+    </address>
+  </author>
 
   <author initials="A.G." surname="Guy" fullname="Amy Guy">
     <organization>Digital Bazaar</organization>
@@ -30,9 +45,9 @@
     </address>
   </author>
 
-  <date month="December" year="2020" />
-  <area></area>
-  <workgroup />
+  <date month="November" year="2021" />
+  <area>Internet</area>
+  <workgroup>MEDIAMAN</workgroup>
 
   <abstract>
     <t>

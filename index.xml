@@ -10,7 +10,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc symrefs="yes" ?>
 <rfc category="std" ipr="trust200902" submissionType="IETF"
-  docName="draft-ietf-mediaman-suffixes-01">
+  updates="6838" docName="draft-ietf-mediaman-suffixes-01">
 <front>
 
   <title>Media Types with Multiple Suffixes</title>

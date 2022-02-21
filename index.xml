@@ -115,15 +115,22 @@ are already registered structured syntax suffixes.
 
     <section anchor="processing" title="Processing Multiple Suffixes">
       <t>
-Registered subtypes have clear processing rules. In cases where specific
+Registered media types have clear processing rules. In cases where specific
 handling of the exact media type is not required, receivers of the media type
 MAY do generic processing on the underlying representation
 according to their ability to process any subset of the suffix(es) from right
 to left inclusive. In other words, an application can choose to ignore the
 base subtype name and left-most "+" from a media type with multiple suffixes,
-and process according to the remaining media type suffix(es). An application
-can ignore as many of the left-most suffixes as necessary to achieve a media
-type that can be processed.
+and process according to the remaining media type suffix(es).
+      </t>
+      <t>
+This sort of generic processing MAY be utilized in a processing pipeline where
+each segment of the pipeline handles a particular structured syntax suffix by
+applying decoding rules associated with the structured syntax suffix in the
+<eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>.
+The segment of the pipleine could then remove the structured syntax suffix
+from the media type and then pass the output of the decoding operation as well
+as the modified media type further down the pipeline.
       </t>
       <t>
 For example, for the media type "application/did+ld+json", applications can
@@ -150,7 +157,7 @@ decoding the byte stream associated with the media type.
     </section>
     <section anchor="security-considerations" title="Security Considerations">
       <section anchor="media-type-fibbing" title="Media Type Fibbing">
-      <t>
+        <t>
 It is possible for attacker to utilize multiple structured suffixes in a way
 that tricks unsuspecting toolchains into skipping important security checks
 and allowing viruses to propagate. For example, an attacker might utilize an
@@ -158,8 +165,8 @@ and allowing viruses to propagate. For example, an attacker might utilize an
 trigger an unzip process that would then invoke Microsoft Excel directly,
 bypassing anti-virus tooling that would otherwise block a macro-enabled MS
 Excel file containing a virus of some kind from being scanned or opened.
-      </t>
-      <t>
+        </t>
+        <t>
 While the liklihood of these sorts of attacks are low, they are not zero and
 enterprising attackers might take advantage of applications that carelessly
 register themselves in a structured suffix processing toolchain. These sorts
@@ -167,7 +174,9 @@ of toolchains need to ensure that the incoming media type is not blindly
 trusted and that proper magic header or file structure checking is performed
 before allowing the encoded data to drive operations that might negatively
 impact the application environment or operating system.
-      </t>
+        </t>
+      </section>
+    </section>
   </section>
 
 </middle>

@@ -148,6 +148,26 @@ Structured Syntax Suffixes Registry</eref>  MUST be used for both encoding and
 decoding the byte stream associated with the media type.
       </t>
     </section>
+    <section anchor="security-considerations" title="Security Considerations">
+      <section anchor="media-type-fibbing" title="Media Type Fibbing">
+      <t>
+It is possible for attacker to utilize multiple structured suffixes in a way
+that tricks unsuspecting toolchains into skipping important security checks
+and allowing viruses to propagate. For example, an attacker might utilize an
+"application/vnd.ms-excel.addin.macroEnabled.12+zip" structured suffix to
+trigger an unzip process that would then invoke Microsoft Excel directly,
+bypassing anti-virus tooling that would otherwise block a macro-enabled MS
+Excel file containing a virus of some kind from being scanned or opened.
+      </t>
+      <t>
+While the liklihood of these sorts of attacks are low, they are not zero and
+enterprising attackers might take advantage of applications that carelessly
+register themselves in a structured suffix processing toolchain. These sorts
+of toolchains need to ensure that the incoming media type is not blindly
+trusted and that proper magic header or file structure checking is performed
+before allowing the encoded data to drive operations that might negatively
+impact the application environment or operating system.
+      </t>
   </section>
 
 </middle>

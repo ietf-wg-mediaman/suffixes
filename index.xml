@@ -98,19 +98,19 @@ subtype name. The suffixes MUST be interpreted as ordered. Valid media type
 names containing a structured suffix are built from right to left (not left
 to right). Characters on the left-most side of the left-most "+" in a subtype
 name specify the base subtype name. Characters to the right of each "+" in
-a subtype name denote additional structured syntax specifier suffixes.
+a subtype name denote additional structured syntax suffixes.
     </t>
     <t>
 Media types with more than one suffix MUST be registered according to the
 procedure defined in [RFC6838]. A new base subtype name MUST only be
 registered with suffix combinations that are already registered in their own
-right.
+right in the
+<eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes registry</eref>.
     </t>
     <t>
-For example, a media type that uses the two suffixes "+svg+xml" is only
-permitted insofar as "svg+xml" is already registered. In this case, the suffix
-"+svg" does not need to be registered individually, but "+xml" and "svg+xml"
-MUST be registered.
+For example, a media type that uses two suffixes, such as
+"application/foo+xml+gzip" is only permitted insofar as "+gzip" and "+xml"
+are already registered structured syntax suffixes.
     </t>
 
     <section anchor="processing" title="Processing Multiple Suffixes">
@@ -126,27 +126,27 @@ can ignore as many of the left-most suffixes as necessary to achieve a media
 type that can be processed.
       </t>
       <t>
-For example, for the media type "application/did+ld+json", the following are
-all valid subtypes with their own individually specified processing rules:
+For example, for the media type "application/did+ld+json", applications can
+choose to process the underlying representation according any of the following
+processing models: 1) application/did+ld+json
+(as specified in the  <eref target="https://www.iana.org/assignments/media-types/media-types.xhtml">Media Type Registry</eref>),
+2) +ld+json (as specified in the <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>),
+or 3) +json (as specified in the <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>).
+As a further example, for the media type "image/svg+xml+gzip", applications can
+choose to process the underlying representation according any of the following
+processing models: 1) image/svg+xml+gzip
+(as specified in the  <eref target="https://www.iana.org/assignments/media-types/media-types.xhtml">Media Type Registry</eref>),
+2) +gzip (as specified in the <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>),
+and then +xml (as specified in the <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>).
       </t>
-      <figure>
-        <artwork>
-did+ld+json
-ld+json
-json
-        </artwork>
-      </figure>
       <t>
-Thus applications can choose to process the underlying representation
-according any of the following valid media types:
+If an application choses to utilize a portion of the media type that is a
+structured syntax suffix, the specification referred to in the  the "Encoding
+Considerations" entry of the
+<eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">
+Structured Syntax Suffixes Registry</eref>  MUST be used for both encoding and
+decoding the byte stream associated with the media type.
       </t>
-      <figure>
-        <artwork>
-application/did+ld+json
-application/ld+json
-application/json
-        </artwork>
-      </figure>
     </section>
   </section>
 

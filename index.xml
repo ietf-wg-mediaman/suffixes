@@ -10,7 +10,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc symrefs="yes" ?>
 <rfc category="std" ipr="trust200902" submissionType="IETF"
-  updates="6838" docName="draft-ietf-mediaman-suffixes-01">
+  updates="6838" docName="draft-ietf-mediaman-suffixes-02">
 <front>
 
   <title>Media Types with Multiple Suffixes</title>
@@ -45,7 +45,7 @@
     </address>
   </author>
 
-  <date month="February" year="2022" />
+  <date month="October" year="2022" />
   <area>Internet</area>
   <workgroup>MEDIAMAN</workgroup>
 

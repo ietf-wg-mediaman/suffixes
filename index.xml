@@ -1,20 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE rfc PUBLIC "-//IETF//DTD RFC 2629//EN" "http://xml.resource.org/authoring/rfc2629.dtd" [
-  <!ENTITY rfc2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
-  <!ENTITY rfc6838 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6838.xml">
-]>
+<?xml version='1.0' encoding='utf-8'?>
 <?xml-stylesheet type="text/xsl" href="rfc2629.xsl" ?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
 <?rfc toc="yes" ?>
 <?rfc sortrefs="yes" ?>
 <?rfc symrefs="yes" ?>
-<rfc category="std" ipr="trust200902" submissionType="IETF"
-  updates="6838" docName="draft-ietf-mediaman-suffixes-02">
+<rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" ipr="trust200902"
+  submissionType="IETF" docName="draft-ietf-mediaman-suffixes-02"
+  tocInclude="true" sortRefs="true" symRefs="true" version="2">
+
 <front>
 
   <title>Media Types with Multiple Suffixes</title>
-
+  <seriesInfo name="Internet-Draft" value="draft-ietf-mediaman-suffixes-02"/>
   <author initials="M." surname="Sporny" fullname="Manu Sporny">
     <organization>Digital Bazaar</organization>
     <address>
@@ -45,7 +43,7 @@
     </address>
   </author>
 
-  <date month="October" year="2022" />
+  <date month="October" day="10" year="2022" />
   <area>Internet</area>
   <workgroup>MEDIAMAN</workgroup>
 
@@ -58,7 +56,8 @@ Procedures" to describe how to interpret subtypes with multiple suffixes.
 
 </front>
 <middle>
-  <section anchor="intro" title="Introduction">
+  <section anchor="intro">
+    <name>Introduction</name>
     <t>
 As written, RFC 6838 [RFC6838] permits the registration of media type subtype
 names which contain any number of occurrences of the "+" character. RFC 6838
@@ -77,7 +76,8 @@ already registered and well-defined media types which themselves use a
 structured suffix.
     </t>
 
-    <section anchor="conventions" title="Conventions Used in This Document">
+    <section anchor="conventions">
+      <name>Conventions Used in This Document</name>
       <t>
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
@@ -88,7 +88,8 @@ plain English words, without any normative meaning.
     </section>
   </section>
 
-  <section anchor="media-types-with-multiple-suffixes" title="Media Types with Multiple Suffixes">
+  <section anchor="media-types-with-multiple-suffixes">
+    <name>Media Types with Multiple Suffixes</name>
     <t>
 The following paragraphs are additions to RFC 6838.
     </t>
@@ -113,7 +114,8 @@ For example, a media type that uses two suffixes, such as
 are already registered structured syntax suffixes.
     </t>
 
-    <section anchor="processing" title="Processing Multiple Suffixes">
+    <section anchor="processing">
+      <name>Processing Multiple Suffixes</name>
       <t>
 Registered media types have clear processing rules. In cases where specific
 handling of the exact media type is not required, receivers of the media type
@@ -155,8 +157,10 @@ Structured Syntax Suffixes Registry</eref>  MUST be used for both encoding and
 decoding the byte stream associated with the media type.
       </t>
     </section>
-    <section anchor="security-considerations" title="Security Considerations">
-      <section anchor="media-type-fibbing" title="Media Type Fibbing">
+    <section anchor="security-considerations">
+      <name>Security Considerations</name>
+      <section anchor="media-type-fibbing">
+        <name>Media Type Fibbing</name>
         <t>
 It is possible for attacker to utilize multiple structured suffixes in a way
 that tricks unsuspecting toolchains into skipping important security checks
@@ -182,16 +186,18 @@ impact the application environment or operating system.
 </middle>
 
 <back>
-  <references title="Normative References">
-&rfc2119;
-&rfc6838;
+  <references>
+    <name>Normative References</name>
+    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.2119.xml"/>
+    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6838.xml"/>
   </references>
 
-  <section anchor="acknowledgements" title="Acknowledgements">
+  <section anchor="acknowledgements">
+    <name>Acknowledgements</name>
     <t>
 The editors would like to thank the following individuals for feedback on the
 specification (in alphabetical order): Martin J. Dürst, Ivan Herman, Graham
-Klyne, Murray S. Kucherawy, and Ted Thibodeau Jr.
+Klyne, Murray S. Kucherawy, Mark Nottingham, and Ted Thibodeau Jr.
     </t>
   </section>
 

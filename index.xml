@@ -121,8 +121,8 @@ handling of the exact media type is not required, receivers of the media type
 MAY do generic processing on the underlying representation
 according to their ability to process any subset of the suffix(es) from right
 to left inclusive. In other words, an application can choose to ignore the
-base subtype name and left-most "+" from a media type with multiple suffixes,
-and process according to the remaining media type suffix(es).
+base subtype name from a media type with multiple suffixes, and process
+according to the remaining media type suffix(es).
       </t>
       <t>
 This sort of generic processing MAY be utilized in a processing pipeline where
@@ -154,6 +154,23 @@ Considerations" entry of the
 <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">
 Structured Syntax Suffixes Registry</eref>  MUST be used for both encoding and
 decoding the byte stream associated with the media type.
+      </t>
+      <t>
+Given this generic structured syntax processing approach, it is possible to
+perform structured syntax suffix processing on structured syntax suffixes that
+result in an invalid media type that cannot be processed further. For example,
+when processing image/svg+xml+gzip, a processor could choose to process using
+the +gzip, and then the +xml structured syntax suffixes rules which would result
+in a meaningless application/svg media type. Application developers are advised
+to ensure that the last structured syntax suffix, or valid media type, processed
+is the last one that is expected to be meaningfully processed by their
+application. Thus, an application that processes the +gzip and then the +xml
+structured syntax suffixes from an image/svg+xml+gzip media type expects that
+the +xml data is the last meaningful piece of information that it hopes to
+extract from the processing pipeline. That is, the application processor is
+expected to make a choice between processing as +xml or as image/svg+xml, and by
+making a choice, other choices might be removed from further processing pipeline
+stages.
       </t>
     </section>
 

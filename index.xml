@@ -188,8 +188,36 @@ impact the application environment or operating system.
 <back>
   <references>
     <name>Normative References</name>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.2119.xml"/>
-    <xi:include href="https://www.rfc-editor.org/refs/bibxml/reference.RFC.6838.xml"/>
+    <reference anchor="RFC2119" target="https://www.rfc-editor.org/info/rfc2119">
+      <front>
+        <title>Key words for use in RFCs to Indicate Requirement Levels</title>
+        <author initials="S." surname="Bradner" fullname="S. Bradner">
+          <organization />
+        </author>
+        <date year="1997" month="March" />
+      </front>
+      <seriesInfo name="BCP" value="14" />
+      <seriesInfo name="RFC" value="2119" />
+      <seriesInfo name="DOI" value="10.17487/RFC2119" />
+    </reference>
+    <reference anchor="RFC6838" target="https://www.rfc-editor.org/info/rfc6838">
+      <front>
+        <title>Media Type Specifications and Registration Procedures</title>
+        <author initials="N." surname="Freed" fullname="N. Freed">
+          <organization />
+        </author>
+        <author initials="J." surname="Klensin" fullname="J. Klensin">
+          <organization />
+        </author>
+        <author initials="T." surname="Hansen" fullname="T. Hansen">
+          <organization />
+        </author>
+        <date year="2013" month="January" />
+      </front>
+      <seriesInfo name="BCP" value="13" />
+      <seriesInfo name="RFC" value="6838" />
+      <seriesInfo name="DOI" value="10.17487/RFC6838" />
+    </reference>
   </references>
 
   <section anchor="acknowledgements">

@@ -135,14 +135,14 @@ as the modified media type further down the pipeline.
       </t>
       <t>
 For example, for the media type "application/did+ld+json", applications can
-choose to process the underlying representation according any of the following
-processing models: 1) application/did+ld+json
+choose to process the underlying representation according to any of the
+following processing models: 1) application/did+ld+json
 (as specified in the  <eref target="https://www.iana.org/assignments/media-types/media-types.xhtml">Media Type Registry</eref>),
 2) +ld+json (as specified in the <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>),
 or 3) +json (as specified in the <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>).
 As a further example, for the media type "image/svg+xml+gzip", applications can
-choose to process the underlying representation according any of the following
-processing models: 1) image/svg+xml+gzip
+choose to process the underlying representation according to any of the
+following processing models: 1) image/svg+xml+gzip
 (as specified in the  <eref target="https://www.iana.org/assignments/media-types/media-types.xhtml">Media Type Registry</eref>),
 2) +gzip (as specified in the <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>),
 and then +xml (as specified in the <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>).
@@ -212,7 +212,7 @@ as the text is terse in nature.
       <section anchor="media-type-fibbing">
         <name>Media Type Fibbing</name>
         <t>
-It is possible for attacker to utilize multiple structured suffixes in a way
+It is possible for an attacker to utilize multiple structured suffixes in a way
 that tricks unsuspecting toolchains into skipping important security checks
 and allowing viruses to propagate. For example, an attacker might utilize an
 "application/vnd.ms-excel.addin.macroEnabled.12+zip" structured suffix to

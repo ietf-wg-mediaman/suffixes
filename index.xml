@@ -149,11 +149,12 @@ and then +xml (as specified in the <eref target="https://www.iana.org/assignment
       </t>
       <t>
 If an application choses to utilize a portion of the media type that is a
-structured syntax suffix, the specification referred to in the  the "Encoding
-Considerations" entry of the
+structured syntax suffix, the suffix MUST exist as an entry in the
 <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">
-Structured Syntax Suffixes Registry</eref>  MUST be used for both encoding and
-decoding the byte stream associated with the media type.
+Structured Syntax Suffixes Registry</eref>
+and the the specification referred to in the "Encoding Considerations"
+entry of the registry MUST be used for both encoding and decoding the byte
+stream associated with the media type.
       </t>
       <t>
 Given this generic structured syntax processing approach, it is possible to

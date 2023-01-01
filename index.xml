@@ -79,11 +79,10 @@ structured suffix.
     <section anchor="conventions">
       <name>Conventions Used in This Document</name>
       <t>
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-"SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-document are to be interpreted as described in [RFC2119] when they
-appear in ALL CAPS.  They may also appear in lower or mixed case as
-plain English words, without any normative meaning.
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
+"SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this
+document are to be interpreted as described in BCP 14 [RFC2119] [RFC8174] when,
+and only when, they appear in all capitals, as shown here.
       </t>
     </section>
   </section>
@@ -199,6 +198,18 @@ impact the application environment or operating system.
       <seriesInfo name="BCP" value="14" />
       <seriesInfo name="RFC" value="2119" />
       <seriesInfo name="DOI" value="10.17487/RFC2119" />
+    </reference>
+    <reference anchor="RFC8174" target="https://www.rfc-editor.org/info/rfc8174">
+      <front>
+        <title>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</title>
+        <author initials="B." surname="Leiba" fullname="B. Leiba">
+          <organization />
+        </author>
+        <date year="2017" month="May" />
+      </front>
+      <seriesInfo name="BCP" value="14" />
+      <seriesInfo name="RFC" value="8174" />
+      <seriesInfo name="DOI" value="10.17487/RFC8174" />
     </reference>
     <reference anchor="RFC6838" target="https://www.rfc-editor.org/info/rfc6838">
       <front>

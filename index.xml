@@ -156,6 +156,39 @@ Structured Syntax Suffixes Registry</eref>  MUST be used for both encoding and
 decoding the byte stream associated with the media type.
       </t>
     </section>
+
+    <section anchor="fragments">
+      <name>Fragment Identifiers</name>
+      <t>
+The syntax and semantics for fragment identifiers are specified in the
+"Fragment Identifier Considerations" column in the IANA Structured Syntax
+Suffixes registry. In general, when processing fragment identifiers associated
+with a structured syntax suffix, the following rules SHOULD be followed:
+      </t>
+      <ol>
+        <li>
+For cases defined for the structured syntax suffix, where the fragment
+identifier does resolve per the structured syntax suffix rules, then as
+specified by the specification associated with the "Fragment Identifier
+Considerations" column in the IANA Structured Syntax Suffixes registry.
+        </li>
+        <li>
+For cases defined for the structured syntax suffix, where the fragment
+identifier does not resolve per the structured syntax suffix rules, then as
+specified by the specification associated with the full media type.
+        </li>
+        <li>
+For cases not defined for the structured syntax suffix, then as specified by the
+specification associated with the full media type.
+        </li>
+      </ol>
+      <t>
+Other advisory information, such as fragment processing not being defined in any
+existing specification, MAY be provided in the "Fragment Identifier
+Considerations" column in the IANA Structured Syntax Suffixes registry as long
+as the text is terse in nature.
+      </t>
+    </section>
     <section anchor="security-considerations">
       <name>Security Considerations</name>
       <section anchor="media-type-fibbing">

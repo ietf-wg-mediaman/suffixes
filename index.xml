@@ -6,13 +6,13 @@
 <?rfc sortrefs="yes" ?>
 <?rfc symrefs="yes" ?>
 <rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" ipr="trust200902"
-  submissionType="IETF" docName="draft-ietf-mediaman-suffixes-03"
+  submissionType="IETF" docName="draft-ietf-mediaman-suffixes-04"
   tocInclude="true" sortRefs="true" symRefs="true" version="2">
 
 <front>
 
   <title>Media Types with Multiple Suffixes</title>
-  <seriesInfo name="Internet-Draft" value="draft-ietf-mediaman-suffixes-03"/>
+  <seriesInfo name="Internet-Draft" value="draft-ietf-mediaman-suffixes-04"/>
   <author initials="M." surname="Sporny" fullname="Manu Sporny">
     <organization>Digital Bazaar</organization>
     <address>
@@ -43,7 +43,7 @@
     </address>
   </author>
 
-  <date month="January" day="1" year="2023" />
+  <date month="June" day="16" year="2023" />
   <area>Internet</area>
   <workgroup>MEDIAMAN</workgroup>
 
@@ -109,7 +109,7 @@ right in the
     </t>
     <t>
 For example, a media type that uses two suffixes, such as
-"application/foo+xml+gzip" is only permitted insofar as "+gzip" and "+xml"
+"application/foo+bar+baz" is only permitted insofar as "+baz" and "+bar+baz"
 are already registered structured syntax suffixes.
     </t>
 
@@ -125,13 +125,10 @@ base subtype name from a media type with multiple suffixes, and process
 according to the remaining media type suffix(es).
       </t>
       <t>
-This sort of generic processing MAY be utilized in a processing pipeline where
-each segment of the pipeline handles a particular structured syntax suffix by
-applying decoding rules associated with the structured syntax suffix in the
+This sort of generic processing of a portion of the media type MAY be utilized
+by a processor that is capable of applying decoding rules associated with the
+portion of the structured syntax suffix in the
 <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>.
-The segment of the pipleine could then remove the structured syntax suffix
-from the media type and then pass the output of the decoding operation as well
-as the modified media type further down the pipeline.
       </t>
       <t>
 For example, for the media type "application/did+ld+json", applications can
@@ -144,40 +141,13 @@ following processing models:
         <li> +json (as specified in the <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>).</li>
       </ol>
       <t>
-As a further example, for the media type "image/svg+xml+gzip", applications can
-choose to process the underlying representation according to any of the
-following processing models:
-      </t>
-      <ol>
-        <li> image/svg+xml+gzip (as specified in the  <eref target="https://www.iana.org/assignments/media-types/media-types.xhtml">Media Type Registry</eref>),</li>
-        <li> +gzip (as specified in the <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>),</li>
-        <li> +xml (as specified in the <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>).</li>
-      </ol>
-      <t>
 If an application choses to utilize a portion of the media type that is a
 structured syntax suffix, the suffix MUST exist as an entry in the
 <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">
 Structured Syntax Suffixes Registry</eref>
-and the the specification referred to in the "Encoding Considerations"
+and the specification referred to in the "Encoding Considerations"
 entry of the registry MUST be used for both encoding and decoding the byte
 stream associated with the media type.
-      </t>
-      <t>
-Given this generic structured syntax processing approach, it is possible to
-perform structured syntax suffix processing on structured syntax suffixes that
-result in an invalid media type that cannot be processed further. For example,
-when processing image/svg+xml+gzip, a processor could choose to process using
-the +gzip, and then the +xml structured syntax suffixes rules which would result
-in a meaningless application/svg media type. Application developers are advised
-to ensure that the last structured syntax suffix, or valid media type, processed
-is the last one that is expected to be meaningfully processed by their
-application. Thus, an application that processes the +gzip and then the +xml
-structured syntax suffixes from an image/svg+xml+gzip media type expects that
-the +xml data is the last meaningful piece of information that it hopes to
-extract from the processing pipeline. That is, the application processor is
-expected to make a choice between processing as +xml or as image/svg+xml, and by
-making a choice, other choices might be removed from further processing pipeline
-stages.
       </t>
     </section>
 
@@ -229,11 +199,11 @@ Excel file containing a virus of some kind from being scanned or opened.
         <t>
 While the liklihood of these sorts of attacks are low, they are not zero and
 enterprising attackers might take advantage of applications that carelessly
-register themselves in a structured suffix processing toolchain. These sorts
-of toolchains need to ensure that the incoming media type is not blindly
-trusted and that proper magic header or file structure checking is performed
-before allowing the encoded data to drive operations that might negatively
-impact the application environment or operating system.
+process media types in this manner. These sorts of toolchains need to ensure
+that the incoming media type is not blindly trusted and that proper magic header
+or file structure checking is performed before allowing the encoded data to
+drive operations that might negatively impact the application environment or
+operating system.
         </t>
       </section>
     </section>
@@ -293,7 +263,7 @@ impact the application environment or operating system.
     <t>
 The editors would like to thank the following individuals for feedback on the
 specification (in alphabetical order): Harald Alvestrand, Martin J. Dürst,
-Ivan Herman, Graham Klyne, Murray S. Kucherawy, Mark Nottingham, 
+Ivan Herman, Graham Klyne, Murray S. Kucherawy, Mark Nottingham,
 Roberto Polli, Orie Steele, and Ted Thibodeau Jr.
     </t>
   </section>

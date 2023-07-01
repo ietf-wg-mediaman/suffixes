@@ -223,6 +223,17 @@ be the same as for a "+bar+baz" document or the same for an
         </t>
       </section>
 
+      <section anchor="ss-security">
+        <name>Suffix Security Characteristics</name>
+        <t>
+Toolchains cannot assume that the security characteristics of processing based
+on structured suffixes will be the same for the entire media type or any
+combination of recognized structured suffixes. For example, presuming a media
+type of "application/foo+bar+baz", a toolchain cannot presume that the
+security considerations for a "+baz" document will be the same as for a
+"+bar+baz" document or the same for an "application/foo+bar+baz" document.
+        </t>
+      </section>
 
       <section anchor="ss-fibbing">
         <name>Media Type Fibbing</name>

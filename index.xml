@@ -93,18 +93,28 @@ and only when, they appear in all capitals, as shown here.
 The following paragraphs are additions to RFC 6838.
     </t>
     <t>
-Media types MAY be registered with more than one suffix appended to the base
-subtype name. The suffixes MUST be interpreted as ordered. Valid media type
-names containing a structured suffix are built from right to left (not left
-to right). Characters on the left-most side of the left-most "+" in a subtype
-name specify the base subtype name. Characters to the right of each "+" in
-a subtype name denote additional structured syntax suffixes.
+Media types MAY be registered with more than one structured suffix appended to
+the base subtype name. Characters on the left-most side of the left-most "+" in
+a subtype name specify the base subtype name. The entire structured suffix is
+all of the characters to the right of the first "+" sign in the media type,
+including the initial "+" sign itself. The entire structured suffix MAY be
+composed of one or more other structured suffixes.
     </t>
     <t>
-Media types with more than one suffix MUST be registered according to the
-procedure defined in [RFC6838]. A new base subtype name MUST only be
-registered with suffix combinations that are already registered in their own
-right in the
+When the entire structured suffix is composed of multiple structured suffixes,
+those structured suffixes MUST be interpreted as ordered. For example, presume a
+media type that uses two suffixes, such as "application/foo+bar+baz", where
+"+bar+baz", "+bar", and "+baz" are registered structured suffixes. A processor
+is expected to process either the entire media type, or "+baz", or "+bar+baz".
+The processor is never expected to process "+bar" alone when presented with a
+"application/foo+bar+baz" media type, as that would be considered interpreting
+multiple structured suffixes out of order.
+    </t>
+    <t>
+Media types containing more than one structured suffix MUST be registered
+according to the procedure defined in [RFC6838]. A new base subtype name MUST
+only be registered with structured suffixes that are already registered in their
+own right in the
 <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes registry</eref>.
     </t>
     <t>

@@ -197,7 +197,20 @@ as the text is terse in nature.
     </section>
     <section anchor="security-considerations">
       <name>Security Considerations</name>
-      <section anchor="media-type-fibbing">
+      <section anchor="ss-validity">
+        <name>Document Validity</name>
+        <t>
+If a toolchain chooses to process a provided media type by using the selected
+structured suffix processing rules, it cannot presume that a document that is
+valid per the decoding rules associated with the structured suffix
+will be valid for a recognized subset of the structured suffix. For example,
+presuming a media type of "application/foo+bar+baz", a toolchain cannot presume
+that a valid "+baz" document will also be a valid "+bar+baz" document or a
+valid "application/foo+bar+baz" document.
+        </t>
+      </section>
+
+      <section anchor="ss-fibbing">
         <name>Media Type Fibbing</name>
         <t>
 It is possible for an attacker to utilize multiple structured suffixes in a way

@@ -197,13 +197,12 @@ bypassing anti-virus tooling that would otherwise block a macro-enabled MS
 Excel file containing a virus of some kind from being scanned or opened.
         </t>
         <t>
-While the liklihood of these sorts of attacks are low, they are not zero and
-enterprising attackers might take advantage of applications that carelessly
-process media types in this manner. These sorts of toolchains need to ensure
-that the incoming media type is not blindly trusted and that proper magic header
-or file structure checking is performed before allowing the encoded data to
-drive operations that might negatively impact the application environment or
-operating system.
+Enterprising attackers might take advantage of toolchains that carelessly
+process media types in this manner. Toolchains that process media types based
+purely on a structured suffix need to ensure that further processing does not
+blindly trust the decoded data and that proper magic header or file structure
+checking is performed before allowing the decoded data to drive operations that
+might negatively impact the application environment or operating system.
         </t>
       </section>
     </section>

@@ -217,8 +217,8 @@ If a toolchain chooses to process a provided media type by using the selected
 structured suffix processing rules, it cannot presume that fragment identifier
 semantics will be the same across a recognized subset of the structured suffix.
 For example, presuming a media type of "application/foo+bar+baz", a toolchain
-cannot presume that the fragment semantics or a "+baz" document will
-be the same as for a "+bar+baz" document or the same for an
+cannot presume that the fragment semantics for a "+baz" document will
+be the same as for a "+bar+baz" document or the same as for an
 "application/foo+bar+baz" document.
         </t>
       </section>

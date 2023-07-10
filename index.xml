@@ -116,12 +116,10 @@ multiple structured suffixes out of order.
     </t>
     <t>
 Media types containing more than one structured suffix MUST be registered
-according to the procedure defined in [RFC6838]. A new base subtype name MUST
-only be registered with structured suffixes that are already registered in their
-own right in the
+according to the procedure defined in [RFC6838]. A new media type that utilizes
+a structured suffix MUST only be registered if the entire structured suffix
+is already registered in the
 <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes registry</eref>.
-    </t>
-    <t>
 For example, a media type that uses two suffixes, such as
 "application/foo+bar+baz" is only permitted insofar as "+baz" and "+bar+baz"
 are already registered structured syntax suffixes.

@@ -6,13 +6,13 @@
 <?rfc sortrefs="yes" ?>
 <?rfc symrefs="yes" ?>
 <rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" ipr="trust200902"
-  submissionType="IETF" docName="draft-ietf-mediaman-suffixes-05"
+  submissionType="IETF" docName="draft-ietf-mediaman-suffixes-06"
   tocInclude="true" sortRefs="true" symRefs="true" version="2">
 
 <front>
 
   <title>Media Types with Multiple Suffixes</title>
-  <seriesInfo name="Internet-Draft" value="draft-ietf-mediaman-suffixes-05"/>
+  <seriesInfo name="Internet-Draft" value="draft-ietf-mediaman-suffixes-06"/>
   <author initials="M." surname="Sporny" fullname="Manu Sporny">
     <organization>Digital Bazaar</organization>
     <address>
@@ -43,7 +43,7 @@
     </address>
   </author>
 
-  <date month="July" day="10" year="2023" />
+  <date month="October" day="26" year="2023" />
   <area>Internet</area>
   <workgroup>MEDIAMAN</workgroup>
 
@@ -307,7 +307,7 @@ will be valid for a recognized subset of the structured suffix. For example,
 presuming a media type of "application/foo+bar+baz", a toolchain cannot presume
 that a valid "+baz" document will also be a valid "+bar+baz" document nor a
 valid "application/foo+bar+baz" document. On the other hand, presuming a media
-type of "application/foo+bar+baz", a toolchain <em>can</em> presume that a valid 
+type of "application/foo+bar+baz", a toolchain <em>can</em> presume that a valid
 "application/foo+bar+baz" document will also be a valid "+bar+baz" document
 and a valid "+baz" document.
         </t>

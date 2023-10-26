@@ -188,12 +188,6 @@ For cases not defined for the structured syntax suffix, then as specified by the
 specification associated with the full media type.
         </li>
       </ol>
-      <t>
-Other advisory information, such as fragment processing not being defined in any
-existing specification, MAY be provided in the "Fragment Identifier
-Considerations" column in the IANA Structured Syntax Suffixes registry as long
-as the text is terse in nature.
-      </t>
     </section>
 
     <section anchor="structured-syntax-suffix-registration-template">

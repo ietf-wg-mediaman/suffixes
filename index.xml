@@ -195,6 +195,79 @@ Considerations" column in the IANA Structured Syntax Suffixes registry as long
 as the text is terse in nature.
       </t>
     </section>
+
+    <section anchor="structured-syntax-suffix-registration-template">
+      <name>Structured Syntax Suffix Registration Template</name>
+      <t>
+The following paragraphs are meant to replace Section 6.2
+"Structured Syntax Suffix Registration Template" in RFC 6838.
+      </t>
+
+      <t>
+This template describes the fields that must be supplied in a structured syntax
+suffix registration request:
+      </t>
+
+      <dl newline="true">
+        <dt>Name</dt>
+        <dd>
+Full name of the well-defined structured syntax.
+        </dd>
+
+        <dt>+suffix</dt>
+        <dd>
+Suffix used to indicate conformance to the syntax.
+        </dd>
+
+        <dt>References</dt>
+        <dd>
+Include full citations for all specifications necessary to understand the
+structured syntax.
+        </dd>
+
+        <dt>Encoding considerations</dt>
+        <dd>
+General guidance regarding encoding considerations for any type employing this
+syntax should be given here.  The same requirements for media type encoding
+considerations given in Section 4.8 apply here.
+        </dd>
+
+        <dt>Interoperability considerations</dt>
+        <dd>
+Any issues regarding the interoperable use of types employing this structured
+syntax should be given here.  Examples would include the existence of
+incompatible versions of the syntax, issues combining certain charsets with the
+syntax, or incompatibilities with other types or protocols.
+        </dd>
+
+        <dt>Fragment identifier considerations</dt>
+        <dd>
+Generic processing of fragment identifiers for any type employing this syntax
+should be described here.
+        </dd>
+
+        <dt>Security considerations</dt>
+        <dd>
+Security considerations shared by media types employing this structured syntax
+must be specified here.  The same requirements for media type security
+considerations given in Section 4.6 apply here, with the exception that the
+option of not assessing the security considerations is not available for suffix
+registrations.
+        </dd>
+
+        <dt>Contact</dt>
+        <dd>
+Person (including contact information) to contact for further information.
+        </dd>
+
+        <dt>Author/Change controller</dt>
+        <dd>
+Person (including contact information) authorized to change this suffix
+registration.
+        </dd>
+      </dl>
+    </section>
+
     <section anchor="security-considerations">
       <name>Security Considerations</name>
       <section anchor="ss-validity">

@@ -189,13 +189,112 @@ For cases not defined for the structured syntax suffix, then proceed as
 specified by the specification associated with the full media type.
         </li>
       </ol>
-      <t>
-Other advisory information, such as fragment processing not being defined in any
-existing specification, MAY be provided in the "Fragment Identifier
-Considerations" column in the IANA Structured Syntax Suffixes registry, as long
-as that text is terse.
-      </t>
     </section>
+
+    <section anchor="structured-syntax-name-suffixes">
+      <name>Structured Syntax Name Suffixes</name>
+      <t>
+The following paragraphs are additional guidance to Section 4.2.8
+"Structured Syntax Name Suffixes", in RFC 6838.
+      </t>
+
+      <t>
+Media types that make use of a named structured syntax, or similar separator
+such as a dash "-", MUST ensure that the registration is semantically aligned,
+from an data model perspective, with existing base subtype names in the media
+type registry. For example, for the media types "application/foo+bar" and
+"application/foo+baz", the expectation is that the semantics suggested by the
+base subtype name "application/foo" are the same between both media types. The
+Designated Expert MUST reject a registration if they believe the semantics for a
+media type registration does not align with existing base subtype names in the
+media type registry.
+      </t>
+
+      <t>
+Registrants MUST prove to the Designated Expert, such as through an email to a
+public mailing list or issue tracker comment, that they have consent from the
+existing Change Controller for the associated base subtype name to register the
+new media type.
+      </t>
+
+    </section>
+
+    <section anchor="structured-syntax-suffix-registration-template">
+      <name>Structured Syntax Suffix Registration Template</name>
+      <t>
+The following paragraphs are meant to replace Section 6.2
+"Structured Syntax Suffix Registration Template" in RFC 6838.
+      </t>
+
+      <t>
+This template describes the fields that must be supplied in a structured syntax
+suffix registration request:
+      </t>
+
+      <dl newline="true">
+        <dt>Name</dt>
+        <dd>
+Full name of the well-defined structured syntax.
+        </dd>
+
+        <dt>+suffix</dt>
+        <dd>
+Suffix used to indicate conformance to the syntax.
+        </dd>
+
+        <dt>References</dt>
+        <dd>
+Include full citations for all specifications necessary to understand the
+structured syntax.
+        </dd>
+
+        <dt>Encoding considerations</dt>
+        <dd>
+A full citation to a section in a specification that provides general guidance
+regarding encoding considerations for any type employing this syntax. The same
+requirements for media type encoding considerations given in Section 4.8 apply
+here.
+        </dd>
+
+        <dt>Interoperability considerations</dt>
+        <dd>
+A full citation to a section in a specification that documents any issues
+regarding the interoperable use of types employing this structured syntax should
+be given here. Examples would include the existence of incompatible versions of
+the syntax, issues combining certain charsets with the syntax, or
+incompatibilities with other types or protocols.
+        </dd>
+
+        <dt>Fragment identifier considerations</dt>
+        <dd>
+A full citation to a section in a specification that documents the generic
+processing rules of fragment identifiers for any type employing this syntax
+should be described here.
+        </dd>
+
+        <dt>Security considerations</dt>
+        <dd>
+A full citation to a section in a specification that provides security
+considerations shared by media types employing this structured syntax must be
+specified here. The same requirements for media type security considerations
+given in Section 4.6 apply here, with the exception that the option of not
+assessing the security considerations is not available for suffix registrations.
+        </dd>
+
+        <dt>Contact</dt>
+        <dd>
+Person or organization (including contact information) to contact for further
+information.
+        </dd>
+
+        <dt>Author/Change controller</dt>
+        <dd>
+Person or organization (including contact information) authorized to change this
+suffix registration.
+        </dd>
+      </dl>
+    </section>
+
     <section anchor="security-considerations">
       <name>Security Considerations</name>
       <section anchor="ss-validity">
@@ -265,6 +364,31 @@ might negatively impact the application environment or operating system.
 </middle>
 
 <back>
+
+  <section anchor="iana-considerations">
+    <name>IANA Considerations</name>
+
+    <t>
+This section will be removed just before this document is published as an RFC or
+incorporated into an update to [RFC6838].
+    </t>
+
+    <t>
+[RFC6838] established the Registration Procedure for the Structured Syntax
+Suffixes Registry as "Expert Review". However, since the inception of the
+registry, it has been operating as if the Registration Procedure is
+"Specification Required" given that a specification is required in the
+registration template for the "References" entry, which defines how the
+structured suffix is to be used. Every entry in the Structured Syntax Suffixes
+Registry contains a reference to a defining specification.
+    </t>
+    <t>
+It is the determination of the IETF MEDIAMAN WG that IANA must update the
+Registration Procedure for the Structured Syntax Suffixes Registry to
+"Specification Required".
+    </t>
+  </section>
+
   <references>
     <name>Normative References</name>
     <reference anchor="RFC2119" target="https://www.rfc-editor.org/info/rfc2119">
@@ -316,7 +440,7 @@ might negatively impact the application environment or operating system.
     <t>
 The editors would like to thank the following individuals for feedback on the
 specification (in alphabetical order): Harald Alvestrand, Martin J. Dürst,
-Ivan Herman, Graham Klyne, Murray S. Kucherawy, Mark Nottingham,
+Ivan Herman, Graham Klyne, Murray S. Kucherawy, Darrel Miller, Mark Nottingham,
 Roberto Polli, Orie Steele, and Ted Thibodeau Jr.
     </t>
   </section>

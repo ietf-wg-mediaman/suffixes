@@ -338,6 +338,31 @@ might negatively impact the application environment or operating system.
 </middle>
 
 <back>
+
+  <section anchor="iana-considerations">
+    <name>IANA Considerations</name>
+
+    <t>
+This section will be removed just before this document is published as an RFC or
+incorporated into an update to [RFC6838].
+    </t>
+
+    <t>
+[RFC6838] established the Registration Procedure for the Structured Syntax
+Suffixes Registry as "Expert Review". However, since the inception of the
+registry, it has been operating as if the Registration Procedure is
+"Specification Required" given that a specification is required in the
+registration template for the "References" entry, which defines how the
+structured suffix is to be used. Every entry in the Structured Syntax Suffixes
+Registry contains a reference to a defining specification.
+    </t>
+    <t>
+It is the determination of the IETF MEDIAMAN WG that IANA must update the
+Registration Procedure for the Structured Syntax Suffixes Registry to
+"Specification Required".
+    </t>
+  </section>
+
   <references>
     <name>Normative References</name>
     <reference anchor="RFC2119" target="https://www.rfc-editor.org/info/rfc2119">

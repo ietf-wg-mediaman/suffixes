@@ -161,6 +161,12 @@ and the specification referred to in the "Encoding Considerations"
 entry of the registry MUST be used for both encoding and decoding the byte
 stream associated with the media type.
       </t>
+      <t>
+In order to gain the most benefit from the media that is presented, and to
+reduce the security attack surface for processed content, implementations that
+are able to process multiple suffixes SHOULD process the most specific media
+type or structured syntax suffix that they are able to process.
+      </t>
     </section>
 
     <section anchor="fragments">

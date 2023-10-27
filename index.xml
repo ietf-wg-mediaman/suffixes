@@ -90,7 +90,7 @@ and only when, they appear in all capitals, as shown here.
   <section anchor="media-types-with-multiple-suffixes">
     <name>Media Types with Multiple Suffixes</name>
     <t>
-The following paragraphs are additions to RFC 6838.
+This section is an addition to RFC 6838.
     </t>
     <t>
 Media types MAY be registered with more than one structured suffix appended to
@@ -127,6 +127,9 @@ are already registered structured syntax suffixes.
 
     <section anchor="processing">
       <name>Processing Multiple Suffixes</name>
+    <t>
+This section is an addition to RFC 6838.
+    </t>
       <t>
 Registered media types have clear processing rules. In cases where specific
 handling of the exact media type is not required, receivers of the media type
@@ -171,6 +174,9 @@ type or structured syntax suffix that they are able to process.
 
     <section anchor="fragments">
       <name>Fragment Identifiers</name>
+    <t>
+This section is an addition to RFC 6838.
+    </t>
       <t>
 The syntax and semantics for fragment identifiers are specified in the
 "Fragment Identifier Considerations" column in the IANA Structured Syntax
@@ -228,8 +234,8 @@ new media type.
     <section anchor="structured-syntax-suffix-registration-template">
       <name>Structured Syntax Suffix Registration Template</name>
       <t>
-The following paragraphs are meant to replace Section 6.2
-"Structured Syntax Suffix Registration Template" in RFC 6838.
+This section replaces Section 6.2 "Structured Syntax Suffix Registration
+Template" in RFC 6838.
       </t>
 
       <t>
@@ -303,6 +309,11 @@ suffix registration.
 
     <section anchor="security-considerations">
       <name>Security Considerations</name>
+
+      <t>
+This section is an addition to Section 7 "Security Considerations" in RFC 6838.
+      </t>
+
       <section anchor="ss-validity">
         <name>Document Validity</name>
         <t>

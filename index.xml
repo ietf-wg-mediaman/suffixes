@@ -369,23 +369,23 @@ might negatively impact the application environment or operating system.
     <name>IANA Considerations</name>
 
     <t>
-This section will be removed just before this document is published as an RFC or
-incorporated into an update to [RFC6838].
+[RFC6838] established the Registration Procedure for the Structured Syntax
+Suffixes Registry as "Expert Review". However, since the inception of the
+registry, the Designated Experts have been operating as if the Registration
+Procedure is "Specification Required" given that a specification is required in
+the registration template for the "References" entry, which defines how the
+structured suffix is to be used. Every entry in the Structured Syntax Suffixes
+Registry contains at least one reference to a specification. Furthermore, this
+document updates the Structured Syntax Suffixes Registry Registration
+Template to include links to specifications for most fields. Therefore, there
+is a clear requirement for at least one specification when performing a
+Structured Syntax Suffix registration.
     </t>
 
     <t>
-[RFC6838] established the Registration Procedure for the Structured Syntax
-Suffixes Registry as "Expert Review". However, since the inception of the
-registry, it has been operating as if the Registration Procedure is
-"Specification Required" given that a specification is required in the
-registration template for the "References" entry, which defines how the
-structured suffix is to be used. Every entry in the Structured Syntax Suffixes
-Registry contains a reference to a defining specification.
-    </t>
-    <t>
-It is the determination of the IETF MEDIAMAN WG that IANA must update the
-Registration Procedure for the Structured Syntax Suffixes Registry to
-"Specification Required".
+This section updates the Registration Procedure for the Structured Syntax
+Suffixes Registry to "Specification Required" and instructs IANA to update the
+existing registry to reflect this change.
     </t>
   </section>
 

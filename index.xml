@@ -338,8 +338,8 @@ security considerations for a "+baz" document will be the same as for a
         </t>
       </section>
 
-      <section anchor="ss-fibbing">
-        <name>Media Type Fibbing</name>
+      <section anchor="ss-partial-processing">
+        <name>Partial Processing</name>
         <t>
 It is possible for an attacker to utilize multiple structured suffixes in a way
 that tricks unsuspecting toolchains into skipping important security checks
@@ -350,7 +350,7 @@ bypassing anti-virus tooling that would otherwise block a macro-enabled MS
 Excel file containing a virus of some kind from being scanned or opened.
         </t>
         <t>
-Enterprising attackers might take advantage of toolchains that carelessly
+Enterprising attackers might take advantage of toolchains that partially
 process media types in this manner. Toolchains that process media types based
 purely on a structured suffix need to ensure that further processing does not
 blindly trust the decoded data, and that proper magic header or file structure

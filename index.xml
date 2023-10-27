@@ -207,7 +207,7 @@ The following paragraphs are additional guidance to Section 4.2.8
       <t>
 Media types that make use of a named structured syntax, or similar separator
 such as a dash "-", MUST ensure that the registration is semantically aligned,
-from an data model perspective, with existing base subtype names in the media
+from a data model perspective, with existing base subtype names in the media
 type registry. For example, for the media types "application/foo+bar" and
 "application/foo+baz", the expectation is that the semantics suggested by the
 base subtype name "application/foo" are the same between both media types. The

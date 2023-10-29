@@ -151,8 +151,9 @@ This means that a processor considers processing the entire media type
 first, and then considers variations of the structured suffixes in most specific
 to least specific (left-to-right) order; for example, "+ld+json" (more specific)
 and then "+json" (less specific). The processor is never expected to process
-"+ld" alone when presented with a "application/vc+ld+json" media type, as that
-would be considered interpreting multiple structured suffixes out of order.
+"+ld" alone when presented with a "application/vc+ld+json" media type for
+two reasons 1) doing so would be considered interpreting multiple structured
+suffixes out of order, and 2) "+ld" is not a registered structured suffix type.
       </t>
       <t>
 If an application choses to utilize a portion of the media type that is a

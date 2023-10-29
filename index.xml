@@ -172,7 +172,7 @@ type or structured syntax suffix that they are able to process.
       </t>
       <t>
 For processors that choose to process data associated with multiple structured
-suffixes, if processing data according to any particular structured suffix
+suffixes, if processing data according to any registered structured suffix type
 fails, further processing on less specific structured suffixes SHOULD NOT be
 performed.
       </t>

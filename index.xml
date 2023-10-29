@@ -7,7 +7,8 @@
 <?rfc symrefs="yes" ?>
 <rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" ipr="trust200902"
   submissionType="IETF" docName="draft-ietf-mediaman-suffixes-06"
-  tocInclude="true" sortRefs="true" symRefs="true" version="2">
+  updates="6838" tocInclude="true" sortRefs="true" symRefs="true"
+  version="2">
 
 <front>
 

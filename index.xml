@@ -62,9 +62,9 @@ Procedures" to describe how to interpret subtypes with multiple suffixes.
     <t>
 As written, RFC 6838 [RFC6838] permits the registration of media type subtype
 names which contain any number of occurrences of the "+" character. RFC 6838
-defines the characters following the right-most "+" to be a structured syntax
-suffix, but does not define anything further about how to interpret subtype
-names containing more than one "+" character.
+defines the characters following the first "+" character to be a structured
+syntax suffix, but does not define anything further about how to interpret
+subtype names containing more than one "+" character.
     </t>
     <t>
 This document updates RFC 6838 to clarify how to interpret subtype names
@@ -105,37 +105,6 @@ composed of one or more other structured suffixes. As an example, given the
 "+baz" is the other structured suffix contained in the entire structured
 suffix.
     </t>
-    <t>
-When the entire structured suffix is composed of multiple structured suffixes,
-those structured suffixes MUST be considered in left-to-right order. This is
-done by considering the entire structured suffix first, and then dropping the
-left-most suffix for each iteration of the structured suffix variations that are
-considered. Note that "considering" a structured suffix variation does not mean
-that an implementation is expected to process each variation, but it does mean
-that the variations that are considered do have a valid order in which they are
-considered. For example, presume a media type that uses two suffixes, such as
-"application/foo+bar+baz", where "+bar+baz", "+bar", and "+baz" are registered
-structured suffixes. A processor considers processing the entire media type
-first, and then considers variations of the structured suffixes in most specific
-to least specific (left-to-right) order; for example, "+bar+baz" (more specific)
-and then "+baz" (less specific). The processor is never expected to process
-"+bar" alone when presented with a "application/foo+bar+baz" media type, as that
-would be considered interpreting multiple structured suffixes out of order. For
-processors that choose to process data associated with multiple structured
-suffixes, if processing data according to any particular structured suffix
-fails, further processing on less specific structured suffixes SHOULD NOT be
-performed.
-    </t>
-    <t>
-Media types containing more than one structured suffix MUST be registered
-according to the procedure defined in [RFC6838]. A new media type that utilizes
-a structured suffix MUST NOT be registered if the entire structured suffix
-is not already registered in the
-<eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes registry</eref>.
-For example, a media type that uses two suffixes, such as
-"application/foo+bar+baz" is only permitted insofar as "+bar+baz" and "+baz"
-are already registered structured syntax suffixes.
-    </t>
 
     <section anchor="processing">
       <name>Processing Multiple Suffixes</name>
@@ -146,8 +115,8 @@ This section is an addition to RFC 6838.
 Registered media types have clear processing rules. In cases where specific
 handling of the exact media type is not required, receivers of the media type
 MAY do generic processing on the underlying representation
-according to their ability to process any subset of the suffix(es) from right
-to left inclusive. In other words, an application can choose to ignore the
+according to their ability to process any subset of the suffix(es) from left
+to right inclusive. In other words, an application can choose to ignore the
 base subtype name from a media type with multiple suffixes, and process
 according to the remaining media type suffix(es).
       </t>
@@ -158,15 +127,33 @@ portion of the structured syntax suffix in the
 <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>.
       </t>
       <t>
-For example, for the media type "application/did+ld+json", applications can
+When the entire structured suffix is composed of multiple structured suffixes,
+those structured suffixes MUST be considered in left-to-right order. This is
+done by considering the entire structured suffix first, and then dropping the
+left-most suffix for each iteration of the structured suffix variations that are
+considered. Note that "considering" a structured suffix variation does not mean
+that an implementation has to process the data associated with each variation,
+but it does mean that the variations that are considered do have a valid order
+in which they are considered.
+      </t>
+      <t>
+For example, for the media type "application/vc+ld+json", applications can
 choose to process the underlying representation according to any one of the
-following processing models:
+following processing models, in the following order:
       </t>
       <ol>
-        <li> application/did+ld+json (as specified in the <eref target="https://www.iana.org/assignments/media-types/media-types.xhtml">Media Type Registry</eref>)</li>
+        <li> application/vc+ld+json (as specified in the <eref target="https://www.iana.org/assignments/media-types/media-types.xhtml">Media Type Registry</eref>)</li>
         <li> +ld+json (as specified in the <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>)</li>
         <li> +json (as specified in the <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>)</li>
       </ol>
+      <t>
+This means that a processor considers processing the entire media type
+first, and then considers variations of the structured suffixes in most specific
+to least specific (left-to-right) order; for example, "+ld+json" (more specific)
+and then "+json" (less specific). The processor is never expected to process
+"+ld" alone when presented with a "application/vc+ld+json" media type, as that
+would be considered interpreting multiple structured suffixes out of order.
+      </t>
       <t>
 If an application choses to utilize a portion of the media type that is a
 structured syntax suffix, the suffix MUST exist as an entry in the
@@ -181,6 +168,12 @@ In order to gain the most benefit from the media that is presented, and to
 reduce the security attack surface for processed content, implementations that
 are able to process multiple suffixes SHOULD process the most specific media
 type or structured syntax suffix that they are able to process.
+      </t>
+      <t>
+For processors that choose to process data associated with multiple structured
+suffixes, if processing data according to any particular structured suffix
+fails, further processing on less specific structured suffixes SHOULD NOT be
+performed.
       </t>
     </section>
 
@@ -249,7 +242,16 @@ new media type.
 This section replaces Section 6.2 "Structured Syntax Suffix Registration
 Template" in RFC 6838.
       </t>
-
+      <t>
+Media types containing more than one structured suffix MUST be registered
+according to the procedure defined in [RFC6838]. A new media type that utilizes
+a structured suffix MUST NOT be registered if the entire structured suffix
+is not already registered in the
+<eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes registry</eref>.
+For example, a media type that uses two suffixes, such as
+"application/foo+bar+baz" is only permitted insofar as "+bar+baz" and "+baz"
+are already registered structured syntax suffixes.
+      </t>
       <t>
 This template describes the fields that must be supplied in a structured syntax
 suffix registration request:
@@ -327,7 +329,7 @@ This section is an addition to Section 7 "Security Considerations" in RFC 6838.
       </t>
 
       <section anchor="ss-validity">
-        <name>Document Validity</name>
+        <name>Document Validity for Suffixes</name>
         <t>
 If a toolchain chooses to process a provided media type by using the selected
 structured suffix processing rules, it cannot presume that a document that is
@@ -343,7 +345,7 @@ and a valid "+baz" document.
       </section>
 
       <section anchor="ss-fragments">
-        <name>Fragment Semantics</name>
+        <name>Fragment Semantics for Suffixes</name>
         <t>
 If a toolchain chooses to process a provided media type by using the selected
 structured suffix processing rules, it cannot presume that fragment identifier
@@ -356,7 +358,7 @@ be the same as for a "+bar+baz" document or the same as for an
       </section>
 
       <section anchor="ss-security">
-        <name>Suffix Security Characteristics</name>
+        <name>Security Characteristics for SUffixes</name>
         <t>
 Toolchains cannot assume that the security characteristics of processing based
 on structured suffixes will be the same for the entire media type nor for any
@@ -368,13 +370,13 @@ security considerations for a "+baz" document will be the same as for a
       </section>
 
       <section anchor="ss-partial-processing">
-        <name>Partial Processing</name>
+        <name>Partial Processing of Suffixes</name>
         <t>
 It is possible for an attacker to utilize multiple structured suffixes in a way
 that tricks unsuspecting toolchains into skipping important security checks
 and allowing viruses to propagate. For example, an attacker might utilize an
 "application/vnd.ms-excel.addin.macroEnabled.12+zip" structured suffix to
-trigger an unzip process that would then directly invoke Microsoft Excel,
+trigger an unzip process that might then directly invoke Microsoft Excel,
 bypassing anti-virus tooling that would otherwise block a macro-enabled MS
 Excel file containing a virus of some kind from being scanned or opened.
         </t>

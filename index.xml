@@ -119,7 +119,11 @@ first, and then considers variations of the structured suffixes in most specific
 to least specific (left-to-right) order; for example, "+bar+baz" (more specific)
 and then "+baz" (less specific). The processor is never expected to process
 "+bar" alone when presented with a "application/foo+bar+baz" media type, as that
-would be considered interpreting multiple structured suffixes out of order.
+would be considered interpreting multiple structured suffixes out of order. For
+processors that choose to process data associated with multiple structured
+suffixes, if processing data according to any particular structured suffix
+fails, further processing on less specific structured suffixes SHOULD NOT be
+performed.
     </t>
     <t>
 Media types containing more than one structured suffix MUST be registered

@@ -106,13 +106,20 @@ suffix.
     </t>
     <t>
 When the entire structured suffix is composed of multiple structured suffixes,
-those structured suffixes MUST be interpreted as ordered. For example, presume a
-media type that uses two suffixes, such as "application/foo+bar+baz", where
-"+bar+baz", "+bar", and "+baz" are registered structured suffixes. A processor
-is expected to process either the entire media type, or "+bar+baz", or "+baz".
-The processor is never expected to process "+bar" alone when presented with a
-"application/foo+bar+baz" media type, as that would be considered interpreting
-multiple structured suffixes out of order.
+those structured suffixes MUST be considered in left-to-right order. This is
+done by considering the entire structured suffix first, and then dropping the
+left-most suffix for each iteration of the structured suffix variations that are
+considered. Note that "considering" a structured suffix variation does not mean
+that an implementation is expected to process each variation, but it does mean
+that the variations that are considered do have a valid order in which they are
+considered. For example, presume a media type that uses two suffixes, such as
+"application/foo+bar+baz", where "+bar+baz", "+bar", and "+baz" are registered
+structured suffixes. A processor considers processing the entire media type
+first, and then considers variations of the structured suffixes in most specific
+to least specific (left-to-right) order; for example, "+bar+baz" (more specific)
+and then "+baz" (less specific). The processor is never expected to process
+"+bar" alone when presented with a "application/foo+bar+baz" media type, as that
+would be considered interpreting multiple structured suffixes out of order.
     </t>
     <t>
 Media types containing more than one structured suffix MUST be registered

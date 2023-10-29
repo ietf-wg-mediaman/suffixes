@@ -244,13 +244,7 @@ Template" in RFC 6838.
       </t>
       <t>
 Media types containing more than one structured suffix MUST be registered
-according to the procedure defined in [RFC6838]. A new media type that utilizes
-a structured suffix MUST NOT be registered if the entire structured suffix
-is not already registered in the
-<eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes registry</eref>.
-For example, a media type that uses two suffixes, such as
-"application/foo+bar+baz" is only permitted insofar as "+bar+baz" and "+baz"
-are already registered structured syntax suffixes.
+according to the procedure defined in [RFC6838] and this document.
       </t>
       <t>
 This template describes the fields that must be supplied in a structured syntax

@@ -391,30 +391,6 @@ might negatively impact the application environment or operating system.
 
 <back>
 
-  <section anchor="iana-considerations">
-    <name>IANA Considerations</name>
-
-    <t>
-[RFC6838] established the Registration Procedure for the Structured Syntax
-Suffixes Registry as "Expert Review". However, since the inception of the
-registry, the Designated Experts have been operating as if the Registration
-Procedure is "Specification Required" given that a specification is required in
-the registration template for the "References" entry, which defines how the
-structured suffix is to be used. Every entry in the Structured Syntax Suffixes
-Registry contains at least one reference to a specification. Furthermore, this
-document updates the Structured Syntax Suffixes Registry Registration
-Template to include links to specifications for most fields. Therefore, there
-is a clear requirement for at least one specification when performing a
-Structured Syntax Suffix registration.
-    </t>
-
-    <t>
-This section updates the Registration Procedure for the Structured Syntax
-Suffixes Registry to "Specification Required" and instructs IANA to update the
-existing registry to reflect this change.
-    </t>
-  </section>
-
   <references>
     <name>Normative References</name>
     <reference anchor="RFC2119" target="https://www.rfc-editor.org/info/rfc2119">
@@ -460,6 +436,30 @@ existing registry to reflect this change.
       <seriesInfo name="DOI" value="10.17487/RFC6838" />
     </reference>
   </references>
+
+  <section anchor="iana-considerations">
+    <name>IANA Considerations</name>
+
+    <t>
+[RFC6838] established the Registration Procedure for the Structured Syntax
+Suffixes Registry as "Expert Review". However, since the inception of the
+registry, the Designated Experts have been operating as if the Registration
+Procedure is "Specification Required" given that a specification is required in
+the registration template for the "References" entry, which defines how the
+structured suffix is to be used. Every entry in the Structured Syntax Suffixes
+Registry contains at least one reference to a specification. Furthermore, this
+document updates the Structured Syntax Suffixes Registry Registration
+Template to include links to specifications for most fields. Therefore, there
+is a clear requirement for at least one specification when performing a
+Structured Syntax Suffix registration.
+    </t>
+
+    <t>
+This section updates the Registration Procedure for the Structured Syntax
+Suffixes Registry to "Specification Required" and instructs IANA to update the
+existing registry to reflect this change.
+    </t>
+  </section>
 
   <section anchor="acknowledgements">
     <name>Acknowledgements</name>

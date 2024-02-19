@@ -353,7 +353,7 @@ be the same as for a "+bar+baz" document or the same as for an
       </section>
 
       <section anchor="ss-security">
-        <name>Security Characteristics for SUffixes</name>
+        <name>Security Characteristics for Suffixes</name>
         <t>
 Toolchains cannot assume that the security characteristics of processing based
 on structured suffixes will be the same for the entire media type nor for any

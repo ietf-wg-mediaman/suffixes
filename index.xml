@@ -248,6 +248,14 @@ Media types containing more than one structured suffix MUST be registered
 according to the procedure defined in [RFC6838] and this document.
       </t>
       <t>
+For structured suffixes containing more than one other structured suffix, the
+structured suffix to the right of the one being registered MUST also be
+registered. For example, for the structured suffix "+foo+bar+baz", the
+registration order is "+baz", then "+bar+baz", and finally "+foo+bar+baz".
+Structured suffixes containing more than one other structured suffix MAY
+register all of the suffixes at the same time.
+      </t>
+      <t>
 This template describes the fields that must be supplied in a structured syntax
 suffix registration request:
       </t>

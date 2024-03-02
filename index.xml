@@ -99,10 +99,10 @@ the base subtype name. Characters on the left-most side of the left-most "+" in
 a subtype name specify the base subtype name. The entire structured suffix is
 all of the characters to the right of the left-most "+" sign in the media type,
 including the left-most "+" sign itself. The entire structured suffix MAY be
-composed of one or more other structured suffixes. As an example, given the
+composed of one or more broader structured suffixes. As an example, given the
 "application/foo+bar+baz" media type: "application" is the top-level type,
 "foo" is the base subtype name, "+bar+baz" is the entire structured suffix, and
-"+baz" is the other structured suffix contained in the entire structured
+"+baz" is the broader structured suffix contained in the entire structured
 suffix.
     </t>
 
@@ -248,11 +248,11 @@ Media types containing more than one structured suffix MUST be registered
 according to the procedure defined in [RFC6838] and this document.
       </t>
       <t>
-For structured suffixes containing more than one other structured suffix, the
+For structured suffixes containing more than one broader structured suffix, the
 structured suffix to the right of the one being registered MUST also be
 registered. For example, for the structured suffix "+foo+bar+baz", the
 registration order is "+baz", then "+bar+baz", and finally "+foo+bar+baz".
-Structured suffixes containing more than one other structured suffix MAY
+Structured suffixes containing more than one broader structured suffix MAY
 register all of the suffixes at the same time.
       </t>
       <t>

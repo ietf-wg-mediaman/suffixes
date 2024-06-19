@@ -6,14 +6,14 @@
 <?rfc sortrefs="yes" ?>
 <?rfc symrefs="yes" ?>
 <rfc xmlns:xi="http://www.w3.org/2001/XInclude" category="std" ipr="trust200902"
-  submissionType="IETF" docName="draft-ietf-mediaman-suffixes-07"
+  submissionType="IETF" docName="draft-ietf-mediaman-suffixes-08"
   updates="6838" tocInclude="true" sortRefs="true" symRefs="true"
   version="2">
 
 <front>
 
   <title>Media Type Suffixes</title>
-  <seriesInfo name="Internet-Draft" value="draft-ietf-mediaman-suffixes-07"/>
+  <seriesInfo name="Internet-Draft" value="draft-ietf-mediaman-suffixes-08"/>
   <author initials="M." surname="Sporny" fullname="Manu Sporny">
     <organization>Digital Bazaar</organization>
     <address>
@@ -25,7 +25,7 @@
         <country>US</country>
       </postal>
       <email>msporny@digitalbazaar.com</email>
-      <uri>http://manu.sporny.org/</uri>
+      <uri>https://www.linkedin.com/in/manusporny/</uri>
     </address>
   </author>
 
@@ -39,7 +39,7 @@
         <code>24060</code>
         <country>US</country>
       </postal>
-      <email>rhiaro@digitalbazaar.com</email>
+      <email>amy@rhiaro.co.uk</email>
       <uri>https://rhiaro.co.uk/</uri>
     </address>
   </author>

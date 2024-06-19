@@ -51,7 +51,8 @@
   <abstract>
     <t>
 This document updates RFC 6838 "Media Type Specifications and Registration
-Procedures" to describe how to interpret media types with suffixes.
+Procedures" to provide additional clarifications on how to interpret
+and register media types with suffixes.
     </t>
   </abstract>
 
@@ -97,38 +98,37 @@ given the "application/foo+bar" media type: "application" is the top-level type,
 "foo" is the base subtype name, and "+bar" is the structured suffix. A media
 type such as "application/foo+bar+baz" is not allowed.
     </t>
-  </section>
 
-  <section anchor="fragments">
-    <name>Fragment Identifiers</name>
-  <t>
-This section is an addition to RFC 6838.
-  </t>
+    <section anchor="fragments">
+      <name>Fragment Identifiers</name>
     <t>
-The syntax and semantics for fragment identifiers are specified in the
-"Fragment Identifier Considerations" column in the IANA Structured Syntax
-Suffixes registry. In general, when processing fragment identifiers associated
-with a structured syntax suffix, the following rules SHOULD be followed:
+  This section is an addition to RFC 6838.
     </t>
-    <ol>
-      <li>
-For cases defined for the structured syntax suffix, where the fragment
-identifier does resolve per the structured syntax suffix rules, then
-proceed as specified by the specification associated with the "Fragment
-Identifier Considerations" column in the IANA Structured Syntax Suffixes
-registry.
-      </li>
-      <li>
-For cases defined for the structured syntax suffix, where the fragment
-identifier does not resolve per the structured syntax suffix rules, then
-proceed as specified by the specification associated with the full media type.
-      </li>
-      <li>
-For cases not defined for the structured syntax suffix, then proceed as
-specified by the specification associated with the full media type.
-      </li>
-    </ol>
-  </section>
+      <t>
+  The syntax and semantics for fragment identifiers are specified in the
+  "Fragment Identifier Considerations" column in the IANA Structured Syntax
+  Suffixes registry. In general, when processing fragment identifiers associated
+  with a structured syntax suffix, the following rules SHOULD be followed:
+      </t>
+      <ol>
+        <li>
+  For cases defined for the structured syntax suffix, where the fragment
+  identifier does resolve per the structured syntax suffix rules, then
+  proceed as specified by the specification associated with the "Fragment
+  Identifier Considerations" column in the IANA Structured Syntax Suffixes
+  registry.
+        </li>
+        <li>
+  For cases defined for the structured syntax suffix, where the fragment
+  identifier does not resolve per the structured syntax suffix rules, then
+  proceed as specified by the specification associated with the full media type.
+        </li>
+        <li>
+  For cases not defined for the structured syntax suffix, then proceed as
+  specified by the specification associated with the full media type.
+        </li>
+      </ol>
+    </section>
 
     <section anchor="structured-syntax-name-suffixes">
       <name>Structured Syntax Name Suffixes</name>
@@ -232,17 +232,18 @@ suffix registration.
         </dd>
       </dl>
     </section>
+  </section>
 
-    <section anchor="security-considerations">
-      <name>Security Considerations</name>
+  <section anchor="security-considerations">
+    <name>Security Considerations</name>
 
-      <t>
+    <t>
 This section is an addition to Section 7 "Security Considerations" in RFC 6838.
-      </t>
+    </t>
 
-      <section anchor="ss-validity">
-        <name>Document Validity for Suffixes</name>
-        <t>
+    <section anchor="ss-validity">
+      <name>Document Validity for Suffixes</name>
+      <t>
 If a toolchain chooses to process a provided media type by using the selected
 structured suffix processing rules, it cannot presume that a document that is
 valid per the decoding rules associated with the structured suffix
@@ -252,52 +253,51 @@ that a valid "+bar" document will also be a valid "application/foo" document.
 On the other hand, presuming a media type of "application/foo+bar", a
 toolchain <em>can</em> presume that a valid "application/foo+bar" document
 will also be a valid "+bar" document.
-        </t>
-      </section>
+      </t>
+    </section>
 
-      <section anchor="ss-fragments">
-        <name>Fragment Semantics for Suffixes</name>
-        <t>
+    <section anchor="ss-fragments">
+      <name>Fragment Semantics for Suffixes</name>
+      <t>
 If a toolchain chooses to process a provided media type by using the selected
 structured suffix processing rules, it cannot presume that fragment identifier
 semantics will be the same across a recognized subset of the structured suffix.
 For example, presuming a media type of "application/foo+bar", a toolchain
 cannot presume that the fragment semantics for a "+bar" document will
 be the same as for an "application/foo+bar" document.
-        </t>
-      </section>
+      </t>
+    </section>
 
-      <section anchor="ss-security">
-        <name>Security Characteristics for Suffixes</name>
-        <t>
+    <section anchor="ss-security">
+      <name>Security Characteristics for Suffixes</name>
+      <t>
 Toolchains cannot assume that the security characteristics of processing based
 on structured suffixes will be the same for the entire media type. For example,
 presuming a media type of "application/foo+bar", a toolchain cannot presume that
 the security characteristics for a "+bar" document will be the same as for a
 "application/foo+bar" document.
-        </t>
-      </section>
+      </t>
+    </section>
 
-      <section anchor="ss-partial-processing">
-        <name>Partial Processing of Suffixes</name>
-        <t>
-It is possible for an attacker to utilize structured suffixes in a way
+    <section anchor="ss-partial-processing">
+      <name>Partial Processing of Suffixes</name>
+      <t>
+It is conceivable that an attacker could utilize structured suffixes in a way
 that tricks unsuspecting toolchains into skipping important security checks
 and allowing viruses to propagate. For example, an attacker might utilize an
 "application/vnd.ms-excel.addin.macroEnabled.12+zip" structured suffix to
 trigger an unzip process that might then directly invoke Microsoft Excel,
 bypassing anti-virus tooling that would otherwise block a macro-enabled MS
 Excel file containing a virus of some kind from being scanned or opened.
-        </t>
-        <t>
+      </t>
+      <t>
 Enterprising attackers might take advantage of toolchains that partially
 process media types in this manner. Toolchains that process media types based
 purely on a structured suffix need to ensure that further processing does not
 blindly trust the decoded data, and that proper magic header or file structure
 checking is performed, before allowing the decoded data to drive operations that
 might negatively impact the application environment or operating system.
-        </t>
-      </section>
+      </t>
     </section>
   </section>
 

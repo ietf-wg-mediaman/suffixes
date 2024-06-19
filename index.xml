@@ -99,33 +99,68 @@ given the "application/foo+bar" media type: "application" is the top-level type,
 type such as "application/foo+bar+baz" is not allowed.
     </t>
 
+    <section anchor="patterns">
+      <name>Common Suffix Patterns</name>
+      <t>
+This section is an addition to RFC 6838.
+      </t>
+
+      <t>
+There are a few common patterns that are utilized for media types that use
+structured suffixes. These patterns include expressing that the data associated
+with a media type:
+      </t>
+
+      <ul>
+        <li>
+Utilizes a structured data format such as "+xml", "+json", "+yaml", or
+"+cbor".
+        </li>
+        <li>
+Is compressed using a binary compression format such as "+zip" or "+gzip".
+        </li>
+        <li>
+Is encoded in a digitally signature format such as "+jwt" or "+cose".
+        </li>
+      </ul>
+
+      <t>
+While it is conceivable that suffixes such as "+xml+zip" are possible, such
+usage is NOT RECOMMENDED due to the large number of combinatorial possibilities
+that could occur and the negative impact that might have on security
+considerations for toolchains that attempt to safely process all of the
+possibilities.
+      </t>
+
+    </section>
+
     <section anchor="fragments">
       <name>Fragment Identifiers</name>
-    <t>
-  This section is an addition to RFC 6838.
-    </t>
       <t>
-  The syntax and semantics for fragment identifiers are specified in the
-  "Fragment Identifier Considerations" column in the IANA Structured Syntax
-  Suffixes registry. In general, when processing fragment identifiers associated
-  with a structured syntax suffix, the following rules SHOULD be followed:
+This section is an addition to RFC 6838.
+      </t>
+      <t>
+The syntax and semantics for fragment identifiers are specified in the
+"Fragment Identifier Considerations" column in the IANA Structured Syntax
+Suffixes registry. In general, when processing fragment identifiers associated
+with a structured syntax suffix, the following rules SHOULD be followed:
       </t>
       <ol>
         <li>
-  For cases defined for the structured syntax suffix, where the fragment
-  identifier does resolve per the structured syntax suffix rules, then
-  proceed as specified by the specification associated with the "Fragment
-  Identifier Considerations" column in the IANA Structured Syntax Suffixes
-  registry.
+For cases defined for the structured syntax suffix, where the fragment
+identifier does resolve per the structured syntax suffix rules, then
+proceed as specified by the specification associated with the "Fragment
+Identifier Considerations" column in the IANA Structured Syntax Suffixes
+registry.
         </li>
         <li>
-  For cases defined for the structured syntax suffix, where the fragment
-  identifier does not resolve per the structured syntax suffix rules, then
-  proceed as specified by the specification associated with the full media type.
+For cases defined for the structured syntax suffix, where the fragment
+identifier does not resolve per the structured syntax suffix rules, then
+proceed as specified by the specification associated with the full media type.
         </li>
         <li>
-  For cases not defined for the structured syntax suffix, then proceed as
-  specified by the specification associated with the full media type.
+For cases not defined for the structured syntax suffix, then proceed as
+specified by the specification associated with the full media type.
         </li>
       </ol>
     </section>

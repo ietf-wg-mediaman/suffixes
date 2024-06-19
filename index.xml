@@ -12,7 +12,7 @@
 
 <front>
 
-  <title>Media Types with Multiple Suffixes</title>
+  <title>Media Type Suffixes</title>
   <seriesInfo name="Internet-Draft" value="draft-ietf-mediaman-suffixes-07"/>
   <author initials="M." surname="Sporny" fullname="Manu Sporny">
     <organization>Digital Bazaar</organization>
@@ -51,7 +51,7 @@
   <abstract>
     <t>
 This document updates RFC 6838 "Media Type Specifications and Registration
-Procedures" to describe how to interpret subtypes with multiple suffixes.
+Procedures" to describe how to interpret media types with suffixes.
     </t>
   </abstract>
 
@@ -67,14 +67,10 @@ syntax suffix, but does not define anything further about how to interpret
 subtype names containing more than one "+" character.
     </t>
     <t>
-This document updates RFC 6838 to clarify how to interpret subtype names
-containing more than one "+" character as subtypes with multiple suffixes.
-    </t>
-    <t>
-As registration of media types which use a structured suffix has become widely
-supported, this enables further specialization of media types that build on
-already registered and well-defined media types which themselves use a
-structured suffix.
+This document updates RFC 6838 to clarify that using more than one "+"
+character is not allowed. It also provides additional guidance that might
+be useful to specification authors that are registering media types with
+structured suffixes.
     </t>
 
     <section anchor="conventions">
@@ -88,126 +84,51 @@ and only when, they appear in all capitals, as shown here.
     </section>
   </section>
 
-  <section anchor="media-types-with-multiple-suffixes">
-    <name>Media Types with Multiple Suffixes</name>
+  <section anchor="media-type-suffixes">
+    <name>Media Type Suffixes</name>
     <t>
 This section is an addition to RFC 6838.
     </t>
     <t>
-Media types MAY be registered with more than one structured suffix appended to
-the base subtype name. Characters on the left-most side of the left-most "+" in
-a subtype name specify the base subtype name. The entire structured suffix is
-all of the characters to the right of the left-most "+" sign in the media type,
-including the left-most "+" sign itself. The entire structured suffix MAY be
-composed of one or more broader structured suffixes. As an example, given the
-"application/foo+bar+baz" media type: "application" is the top-level type,
-"foo" is the base subtype name, "+bar+baz" is the entire structured suffix, and
-"+baz" is the broader structured suffix contained in the entire structured
-suffix.
+A structured suffix is defined as all of the characters to the right of the
+left-most "+" sign in a media type, including the left-most "+" sign itself.
+The structured suffix MUST NOT contain more than one "+" sign. As an example,
+given the "application/foo+bar" media type: "application" is the top-level type,
+"foo" is the base subtype name, and "+bar" is the structured suffix. A media
+type such as "application/foo+bar+baz" is not allowed.
     </t>
+  </section>
 
-    <section anchor="processing">
-      <name>Processing Multiple Suffixes</name>
-    <t>
+  <section anchor="fragments">
+    <name>Fragment Identifiers</name>
+  <t>
 This section is an addition to RFC 6838.
-    </t>
-      <t>
-Registered media types have clear processing rules. In cases where specific
-handling of the exact media type is not required, receivers of the media type
-MAY do generic processing on the underlying representation
-according to their ability to process any subset of the suffix(es) from left
-to right inclusive. In other words, an application can choose to ignore the
-base subtype name from a media type with multiple suffixes, and process
-according to the remaining media type suffix(es).
-      </t>
-      <t>
-This sort of generic processing of a portion of the media type MAY be utilized
-by a processor that is capable of applying decoding rules associated with the
-portion of the structured syntax suffix in the
-<eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>.
-      </t>
-      <t>
-When the entire structured suffix is composed of multiple structured suffixes,
-those structured suffixes MUST be considered in left-to-right order. This is
-done by considering the entire structured suffix first, and then dropping the
-left-most suffix for each iteration of the structured suffix variations that are
-considered. Note that "considering" a structured suffix variation does not mean
-that an implementation has to process the data associated with each variation,
-but it does mean that the variations that are considered do have a valid order
-in which they are considered.
-      </t>
-      <t>
-For example, for the media type "application/vc+ld+json", applications can
-choose to process the underlying representation according to any one of the
-following processing models, in the following order:
-      </t>
-      <ol>
-        <li> application/vc+ld+json (as specified in the <eref target="https://www.iana.org/assignments/media-types/media-types.xhtml">Media Type Registry</eref>)</li>
-        <li> +ld+json (as specified in the <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>)</li>
-        <li> +json (as specified in the <eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">Structured Syntax Suffixes Registry</eref>)</li>
-      </ol>
-      <t>
-This means that a processor considers processing the entire media type
-first, and then considers variations of the structured suffixes in most specific
-to least specific (left-to-right) order; for example, "+ld+json" (more specific)
-and then "+json" (less specific). The processor is never expected to process
-"+ld" alone when presented with a "application/vc+ld+json" media type for
-two reasons 1) doing so would be considered interpreting multiple structured
-suffixes out of order, and 2) "+ld" is not a registered structured suffix type.
-      </t>
-      <t>
-If an application choses to utilize a portion of the media type that is a
-structured syntax suffix, the suffix MUST exist as an entry in the
-<eref target="https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml">
-Structured Syntax Suffixes Registry</eref>
-and the specification referred to in the "Encoding Considerations"
-entry of the registry MUST be used for both encoding and decoding the byte
-stream associated with the media type.
-      </t>
-      <t>
-In order to gain the most benefit from the media that is presented, and to
-reduce the security attack surface for processed content, implementations that
-are able to process multiple suffixes SHOULD process the most specific media
-type or structured syntax suffix that they are able to process.
-      </t>
-      <t>
-For processors that choose to process data associated with multiple structured
-suffixes, if processing data according to any registered structured suffix type
-fails, further processing on less specific structured suffixes SHOULD NOT be
-performed.
-      </t>
-    </section>
-
-    <section anchor="fragments">
-      <name>Fragment Identifiers</name>
+  </t>
     <t>
-This section is an addition to RFC 6838.
-    </t>
-      <t>
 The syntax and semantics for fragment identifiers are specified in the
 "Fragment Identifier Considerations" column in the IANA Structured Syntax
 Suffixes registry. In general, when processing fragment identifiers associated
 with a structured syntax suffix, the following rules SHOULD be followed:
-      </t>
-      <ol>
-        <li>
+    </t>
+    <ol>
+      <li>
 For cases defined for the structured syntax suffix, where the fragment
 identifier does resolve per the structured syntax suffix rules, then
 proceed as specified by the specification associated with the "Fragment
 Identifier Considerations" column in the IANA Structured Syntax Suffixes
 registry.
-        </li>
-        <li>
+      </li>
+      <li>
 For cases defined for the structured syntax suffix, where the fragment
 identifier does not resolve per the structured syntax suffix rules, then
 proceed as specified by the specification associated with the full media type.
-        </li>
-        <li>
+      </li>
+      <li>
 For cases not defined for the structured syntax suffix, then proceed as
 specified by the specification associated with the full media type.
-        </li>
-      </ol>
-    </section>
+      </li>
+    </ol>
+  </section>
 
     <section anchor="structured-syntax-name-suffixes">
       <name>Structured Syntax Name Suffixes</name>
@@ -242,18 +163,6 @@ new media type.
       <t>
 This section replaces Section 6.2 "Structured Syntax Suffix Registration
 Template" in RFC 6838.
-      </t>
-      <t>
-Media types containing more than one structured suffix MUST be registered
-according to the procedure defined in [RFC6838] and this document.
-      </t>
-      <t>
-For structured suffixes containing more than one broader structured suffix, the
-structured suffix to the right of the one being registered MUST also be
-registered. For example, for the structured suffix "+foo+bar+baz", the
-registration order is "+baz", then "+bar+baz", and finally "+foo+bar+baz".
-Structured suffixes containing more than one broader structured suffix MAY
-register all of the suffixes at the same time.
       </t>
       <t>
 This template describes the fields that must be supplied in a structured syntax
@@ -338,12 +247,11 @@ If a toolchain chooses to process a provided media type by using the selected
 structured suffix processing rules, it cannot presume that a document that is
 valid per the decoding rules associated with the structured suffix
 will be valid for a recognized subset of the structured suffix. For example,
-presuming a media type of "application/foo+bar+baz", a toolchain cannot presume
-that a valid "+baz" document will also be a valid "+bar+baz" document nor a
-valid "application/foo+bar+baz" document. On the other hand, presuming a media
-type of "application/foo+bar+baz", a toolchain <em>can</em> presume that a valid
-"application/foo+bar+baz" document will also be a valid "+bar+baz" document
-and a valid "+baz" document.
+presuming a media type of "application/foo+bar", a toolchain cannot presume
+that a valid "+bar" document will also be a valid "application/foo" document.
+On the other hand, presuming a media type of "application/foo+bar", a
+toolchain <em>can</em> presume that a valid "application/foo+bar" document
+will also be a valid "+bar" document.
         </t>
       </section>
 
@@ -353,10 +261,9 @@ and a valid "+baz" document.
 If a toolchain chooses to process a provided media type by using the selected
 structured suffix processing rules, it cannot presume that fragment identifier
 semantics will be the same across a recognized subset of the structured suffix.
-For example, presuming a media type of "application/foo+bar+baz", a toolchain
-cannot presume that the fragment semantics for a "+baz" document will
-be the same as for a "+bar+baz" document or the same as for an
-"application/foo+bar+baz" document.
+For example, presuming a media type of "application/foo+bar", a toolchain
+cannot presume that the fragment semantics for a "+bar" document will
+be the same as for an "application/foo+bar" document.
         </t>
       </section>
 
@@ -364,18 +271,17 @@ be the same as for a "+bar+baz" document or the same as for an
         <name>Security Characteristics for Suffixes</name>
         <t>
 Toolchains cannot assume that the security characteristics of processing based
-on structured suffixes will be the same for the entire media type nor for any
-combination of recognized structured suffixes. For example, presuming a media
-type of "application/foo+bar+baz", a toolchain cannot presume that the
-security considerations for a "+baz" document will be the same as for a
-"+bar+baz" document nor the same for an "application/foo+bar+baz" document.
+on structured suffixes will be the same for the entire media type. For example,
+presuming a media type of "application/foo+bar", a toolchain cannot presume that
+the security characteristics for a "+bar" document will be the same as for a
+"application/foo+bar" document.
         </t>
       </section>
 
       <section anchor="ss-partial-processing">
         <name>Partial Processing of Suffixes</name>
         <t>
-It is possible for an attacker to utilize multiple structured suffixes in a way
+It is possible for an attacker to utilize structured suffixes in a way
 that tricks unsuspecting toolchains into skipping important security checks
 and allowing viruses to propagate. For example, an attacker might utilize an
 "application/vnd.ms-excel.addin.macroEnabled.12+zip" structured suffix to
